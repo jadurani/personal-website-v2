@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  /* Default font size for smaller screens */
+  font-size: 16px;
+  @apply font-body text-tuna bg-alabaster;
+}
