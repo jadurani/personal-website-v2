@@ -28,7 +28,7 @@ export default function Home() {
 
           <div className="bg-alabaster w-full md:bottom-0 md:left-8 md:absolute md:w-2/3 lg:w-2/5 z-10">
             <h1 className="font-heading font-bold text-h2 py-8 leading-none md:text-h1">
-              Hey, I&#39;m Alex Spencer and I love building beautiful websites
+              Hey, I&#39;m Rani and I love building beautiful websites
             </h1>
             <Button
               label="About Me"
@@ -55,9 +55,10 @@ export default function Home() {
             </h2>
 
             <p className="text-tuna/60 py-4 leading-relaxed lg:leading-loose">
-              I&#39;m a junior front-end developer looking for a new role in an
-              exciting company. I focus on writing accessible HTML, using modern
-              CSS practices and writing clean JavaScript. When writing
+              I&#39;m a software engineer focused in developing front-facing
+              apps. I&#39;m passionate about building beautiful interfaces that
+              are delightful to use. I focus on writing accessible HTML, using
+              modern CSS practices and writing clean JavaScript. When writing
               JavaScript code, I mostly use React, but I can adapt to whatever
               tools are required. I&#39;m based in London, UK, but I&#39;m happy
               working remotely and have experience in remote teams. When I&#39;m
