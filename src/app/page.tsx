@@ -1,6 +1,6 @@
 "use client";
 
-import devImage from "@assets/images/home/home-dev-image.jpg";
+import devImage from "@assets/images/home/jadurani-davalos.webp";
 import imgLandingBG from "@assets/images/home/landing-bg.jpg";
 import { Button } from "@components/Button/Button";
 import ContactPrompt from "@components/ContactPrompt/ContactPrompt";
@@ -40,36 +40,43 @@ export default function Home() {
         <div
           id="about-me"
           className="max-w-6xl px-8 container mx-auto flex flex-wrap md:flex-nowrap gap-4 md:gap-16 justify-center items-center mb-8">
-          <div className="w-[320px] h-[320px] sm:w-full sm:h-[520px] relative">
+          {/* <div className="w-[320px] h-[320px] sm:w-full sm:h-[520px] relative"> */}
+          <div className="flex-grow w-full relative self-stretch min-h-[320px]">
             <Image
               src={devImage}
               fill
               alt="developer image"
-              className="object-cover object-right"
+              className="object-cover object-left"
             />
           </div>
 
-          <article className="w-full self-stretch flex-grow flex flex-col justify-center py-8 border-t-2 border-b-2 solid border-tuna/5 lg:mx-16">
+          <article className="w-full self-stretch flex-grow flex flex-col justify-center py-4 border-y-2 solid border-tuna/5 lg:mx-16">
             <h2 className="font-heading font-bold text-h2 md:text-h1">
               About Me
             </h2>
 
-            <p className="text-tuna/60 py-4 leading-relaxed lg:leading-loose">
-              I&#39;m a software engineer focused in developing front-facing
-              apps. I&#39;m passionate about building beautiful interfaces that
-              are delightful to use. I focus on writing accessible HTML, using
-              modern CSS practices and writing clean JavaScript. When writing
-              JavaScript code, I mostly use React, but I can adapt to whatever
-              tools are required. I&#39;m based in London, UK, but I&#39;m happy
-              working remotely and have experience in remote teams. When I&#39;m
-              not coding, you&#39;ll find me outdoors. I love being out in
-              nature whether that&#39;s going for a walk, run or cycling.
-              I&#39;d love you to check out my work.
+            <p className="text-tuna/60 py-2 leading-relaxed lg:leading-loose">
+              I&#39;m a software engineer with a strong preference in building
+              the user-facing components of the product.
+            </p>
+            <p className="text-tuna/60 py-2 leading-relaxed lg:leading-loose">
+              I&#39;ve worked with public and private organizations in
+              identifying problems and building appropriate solutions,
+              complemented by my experiences in product design, customer
+              support, and project management.
+            </p>
+            <p className="text-tuna/60 py-2 leading-relaxed lg:leading-loose">
+              When I&#39;m not coding, I&#39;m learning to sing better and play
+              the piano, to get stronger and more flexible through yoga, and to
+              thrive in the wild as a vegetarian. 🥬
+            </p>
+            <p className="text-tuna/60 py-2 leading-relaxed lg:leading-loose">
+              I&#39;d love for you to check out my work.
             </p>
 
-            <div>
+            <div className="flex gap-4 py-2">
               <Button
-                label="Go to Portfolio"
+                label="See Projects"
                 handleClick={() => router.push("/portfolio")}></Button>
             </div>
           </article>
