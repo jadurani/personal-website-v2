@@ -24,16 +24,16 @@ export default function ProjectPage() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-8 lg:gap-16 lg:flex-row">
+        <div className="flex flex-col lg:gap-16 lg:flex-row">
           {/* overview */}
           <section className="w-full lg:w-2/5 mx-auto">
             <div className="w-full flex flex-col md:flex-row justify-center py-8 border-t-2 border-b-2 solid border-tuna/5">
               <div className="flex flex-col w-full">
-                <h1 className="font-heading font-bold text-h2 md:text-h1">
+                <h1 className="font-heading font-bold text-h2 md:text-h1 leading-tight">
                   Project NOAH, Revamped!
                 </h1>
 
-                <div className="text-tuna/60 py-4 md:hidden lg:block">
+                <div className="text-tuna/60 py-4 md:hidden lg:block leading-relaxed">
                   <p className="py-2">
                     This project required me to design the overall UI/UX and
                     lead the development of the website revamp.
@@ -82,7 +82,7 @@ export default function ProjectPage() {
           {/* details */}
           <div className="lg:w-3/5">
             <article>
-              <h2 className="text-h3 md:text-h2 font-heading">
+              <h2 className="mt-6 text-h3 md:text-h2 font-heading">
                 Official Links
               </h2>
               <ol className="text-tuna/60">
@@ -108,7 +108,7 @@ export default function ProjectPage() {
 
             {/* project background */}
             <article>
-              <h2 className="text-h3 md:text-h2 font-heading">
+              <h2 className="mt-6 text-h3 md:text-h2 font-heading">
                 Project Background
               </h2>
               <div className="text-tuna/60">
@@ -175,8 +175,10 @@ export default function ProjectPage() {
 
             {/* preview */}
             <article>
-              <h2 className="text-h3 md:text-h2 font-heading">Demo Preview</h2>
-              <p className="text-tuna/60 py-2.5 text-justify">
+              <h2 className="mt-6 text-h3 md:text-h2 font-heading">
+                Demo Preview
+              </h2>
+              <p className="text-tuna/60 py-2 text-justify">
                 The following video is{" "}
                 <a
                   href="https://pistangmapa.org/2021/programme/session/pnm210301"
@@ -186,7 +188,7 @@ export default function ProjectPage() {
                 , where I&#39;ve had the honor of presenting our work on the
                 revamped NOAH website:
               </p>
-              <div className="mx-auto my-4 w-[250px] h-[140px] sm:w-[560px] sm:h-[315px]">
+              <div className="mx-auto my-4 w-[250px] h-[140px] xs:w-[320px] xs:h-[180px] sm:w-[560px] sm:h-[315px]">
                 <iframe
                   className="h-full w-full"
                   src="https://www.youtube.com/embed/owiipDLqg_U"
@@ -199,20 +201,20 @@ export default function ProjectPage() {
 
             {/* Design and Development */}
             <article>
-              <h2 className="text-h3 md:text-h2 font-heading">
+              <h2 className="mt-6 text-h3 md:text-h2 font-heading">
                 Design and Development
               </h2>
-              <p>
-                In this piece, I’ll walk you through the process we’ve taken in
-                the revamp.
+              <p className="text-tuna/60 py-2 text-justify">
+                In this piece, I&#39;ll walk you through the process we&#39;ve
+                taken in the revamp.
               </p>
 
               {/* 1 - Goals and Objectives */}
               <article>
-                <h3 className="text-h4 md:text-h3 font-heading">
+                <h3 className="mt-4 text-h4 md:text-h3 font-heading">
                   1 - Goals and Objectives
                 </h3>
-                <p>
+                <p className="text-tuna/60 py-2 text-justify">
                   The revamp process started with identifying the goals of the
                   project. Through a{" "}
                   <a
@@ -221,13 +223,13 @@ export default function ProjectPage() {
                     stakeholder questionnaire
                   </a>
                   , we gathered information on why we are doing the revamp,
-                  what’s our definition of done, who’s our intended audience,
-                  etc.
+                  what&#39;s our definition of done, who&#39;s our intended
+                  audience, etc.
                 </p>
-                <p>
-                  The stakeholder being interviewed at the time was UP NOAH’s
-                  Executive Director, Dr. Mahar Lagmay, and here’s what can be
-                  concluded from{" "}
+                <p className="text-tuna/60 py-2 text-justify">
+                  The stakeholder being interviewed at the time was UP
+                  NOAH&#39;s Executive Director, Dr. Mahar Lagmay, and
+                  here&#39;s what can be concluded from{" "}
                   <a
                     href="https://docs.google.com/document/d/1BJmljHRpmcv01zHlHQBx7JuVglpGcKhpr5K29qleA9w/edit?usp=sharing"
                     target="_blank">
@@ -235,7 +237,8 @@ export default function ProjectPage() {
                   </a>
                   :
                 </p>
-                <ol>
+
+                <ol className="text-tuna/60">
                   <li className="list-disc list-outside ml-7 py-2">
                     Inform the lay person of the hazard exposure in their area,
                     regardless of their expertise in reading maps, so they can
@@ -252,25 +255,26 @@ export default function ProjectPage() {
 
               {/* 2 - Evaluation of the “Current” Project */}
               <article>
-                <h3 className="text-h4 md:text-h3 font-heading">
+                <h3 className="mt-4 text-h4 md:text-h3 font-heading">
                   2 - Evaluation of the “Current” Project
                 </h3>
-                <p>
+                <p className="text-tuna/60 py-2 text-justify">
                   The project was evaluated in terms of the then-current user
-                  experience and technical implementation. I’ll first go over
-                  the feedback on the user experience and then the state of the
-                  tech stack.
+                  experience and technical implementation. I&#39;ll first go
+                  over the feedback on the user experience and then the state of
+                  the tech stack.
                 </p>
 
                 {/* User Interface and User Experience */}
                 <article>
-                  <h4 className="text-h5 md:text-h4 font-heading">
+                  <h4 className="mt-4 text-h5 md:text-h4 font-heading">
                     User Interface and User Experience
                   </h4>
-                  <p>
-                    Here’s how the old NOAH website’s landing page looked like:
+                  <p className="text-tuna/60 py-2 text-justify">
+                    Here&#39;s how the old NOAH website&#39;s landing page
+                    looked like:
                   </p>
-                  <div className="relative w-full h-full mb-12">
+                  <div className="relative w-full h-full my-2">
                     <img
                       alt="project preview for the Project NOAH, Revamped!"
                       className="object-contain lg:object-cover w-full h-full"
@@ -279,11 +283,11 @@ export default function ProjectPage() {
                       }
                     />
                   </div>
-                  <p>
+                  <p className="text-tuna/60 py-2 text-justify">
                     We gathered feedback from current users, both technical and
                     non-technical, as well as included our own.
                   </p>
-                  <p>
+                  <p className="text-tuna/60 py-2 text-justify italic">
                     Note: When we say “technical” from hereon, we mean people
                     who are used to dealing with complexity, such as
                     policy-makers and researchers, while “non-technical” refers
@@ -292,7 +296,7 @@ export default function ProjectPage() {
                     and “non-technical” people as the plane passengers who only
                     need to get to their destination.
                   </p>
-                  <div className="flex gap-4 flex-wrap lg:flex-nowrap w-full">
+                  <div className="my-2 flex gap-4 flex-wrap lg:flex-nowrap w-full">
                     <div>
                       <img
                         alt="Photo of airplane pilots in a cockpit, likened to the user segment that are comfortable with complexity"
@@ -313,25 +317,25 @@ export default function ProjectPage() {
                     </div>
                   </div>
 
-                  <p>
+                  <p className="text-tuna/60 py-2 text-justify">
                     Going back, the main issues raised in the Project NOAH
                     website can be summarized as follows:
                   </p>
-                  <ol>
-                    <li>
-                      There’s no clear value proposition in the landing page,
-                      it’s informative of what NOAH is, but what’s in it for the
-                      users? There’s no call-to-action on how the user can
-                      benefit from the information presented
+                  <ol className="text-tuna/60">
+                    <li className="list-disc list-outside ml-7 py-2">
+                      There&#39;s no clear value proposition in the landing
+                      page, it&#39;s informative of what NOAH is, but what&#39;s
+                      in it for the users? There&#39;s no call-to-action on how
+                      the user can benefit from the information presented
                     </li>
-                    <li>
+                    <li className="list-disc list-outside ml-7 py-2">
                       The icons were not too clear -- you either have to hover
-                      on the icons to know what it’s for or click on it only to
-                      find out it’s not what you’re looking for
+                      on the icons to know what it&#39;s for or click on it only
+                      to find out it&#39;s not what you&#39;re looking for
                     </li>
                   </ol>
 
-                  <div className="block">
+                  <div className="block my-4">
                     <img
                       alt="Screenshot of the old NOAH web app"
                       className="object-contain lg:object-cover w-full h-full"
@@ -347,20 +351,20 @@ export default function ProjectPage() {
                   <h4 className="text-h5 md:text-h4 font-heading">
                     Technical Implementation
                   </h4>
-                  <p>
+                  <p className="text-tuna/60 py-2 text-justify">
                     The NOAH website was built with the first version of React
                     mixed with jQuery and BootstrapCSS. All hazard maps rendered
                     in the browser were in the form of geo-tagged PNG files,
                     queried from GeoServer given the bounding box computed from
-                    the user’s screen.
+                    the user&#39;s screen.
                   </p>
-                  <p>
+                  <p className="text-tuna/60 py-2 text-justify">
                     There were other features that NOAH hosts but our main focus
                     for the revamp was to communicate the hazards for flood,
                     landslides, and storm surges.
                   </p>
 
-                  <p>
+                  <p className="text-tuna/60 py-2 text-justify">
                     The UPRI Core WebGIS team wanted a complete revamp of the
                     project and advised me to not be limited by the current tech
                     stack and have encouraged me to explore any technology to
@@ -373,29 +377,29 @@ export default function ProjectPage() {
                   <h4 className="text-h5 md:text-h4 font-heading">
                     Work Parameters
                   </h4>
-                  <p>
-                    I’ve made it known to the team that I have no prior
+                  <p className="text-tuna/60 py-2 text-justify">
+                    I&#39;ve made it known to the team that I have no prior
                     knowledge of WebGIS and related technologies and that I
                     would need help on which direction I could go in
-                    investigating what’s possible. I’ve also shared that my
-                    designs will focus on functionality and it won’t be too
-                    ✨ fancy ✨ 
+                    investigating what&#39;s possible. I&#39;ve also shared that
+                    my designs will focus on functionality and it won&#39;t be
+                    too ✨fancy✨
                   </p>
                 </article>
               </article>
 
               {/* 3 - Review of Related Apps */}
               <article>
-                <h3 className="text-h4 md:text-h3 font-heading">
+                <h3 className="mt-4 text-h4 md:text-h3 font-heading">
                   3 - Review of Related Apps
                 </h3>
-                <p>
-                  Now that we’ve laid out what was given, we wanted to build
-                  something that hasn’t been done before in the scale that we’re
-                  targeting.{" "}
+                <p className="text-tuna/60 py-2 text-justify">
+                  Now that we&#39;ve laid out what was given, we wanted to build
+                  something that hasn&#39;t been done before in the scale that
+                  we&#39;re targeting.{" "}
                 </p>
-                <p>
-                  I looked for similar projects and here are what I’ve found
+                <p className="text-tuna/60 py-2 text-justify">
+                  I looked for similar projects and here are what I&#39;ve found
                   that inspired me the most:
                 </p>
 
