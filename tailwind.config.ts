@@ -28,7 +28,10 @@ const config: Config = {
     },
     extend: {
       colors: {
-        verdigris: "#5FB4A2", // cyan
+        verdigris: { // cyan
+          DEFAULT: "#5FB4A2",
+          shadow: "#1e7965"
+        },
         elephant: "#203A4C", // dark blue
         tuna: "#33323D", // greyish dark blue
         alabaster: "#FAFAFA", // BG
