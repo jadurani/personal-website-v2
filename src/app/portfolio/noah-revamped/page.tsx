@@ -391,10 +391,10 @@ export default function ProjectPage() {
                 </article>
               </article>
 
-              {/* 3 - Review of Related Apps */}
+              {/* 3 - Review of Related Projects */}
               <article>
                 <h3 className="mt-4 text-h4 md:text-h3 font-heading">
-                  3 - Review of Related Apps
+                  3 - Review of Related Projects
                 </h3>
                 <p className="text-tuna/60 py-2 text-justify">
                   Now that we&#39;ve laid out what was given, we wanted to build
@@ -406,16 +406,17 @@ export default function ProjectPage() {
                   that inspired me the most:
                 </p>
 
+                {/* app 1 */}
                 <article>
                   <h4 className="mt-5 text-h5 md:text-h4 font-heading">
-                    Marikina Flood-Risk Visualization
+                    Project 1: Marikina Flood-Risk Visualization
                   </h4>
 
                   {/* Link */}
                   <section className="mt-2 text-tuna/60">
                     <h5 className="text-tuna/80">Link:</h5>
                     <ul className="mx-2">
-                      <li className="list-disc list-outside ml-7 py-2">
+                      <li className="list-disc list-outside ml-7 my-2">
                         <a
                           href="http://comet.dlsu.edu.ph/riesgo-vis/"
                           target="_blank">
@@ -440,11 +441,11 @@ export default function ProjectPage() {
                   <section className="mt-2 text-tuna/60">
                     <h5 className="text-tuna/80">What is it:</h5>
                     <ul className="mx-2">
-                      <li className="list-disc list-outside ml-7 py-2">
+                      <li className="list-disc list-outside ml-7 my-2">
                         This is a project by Briane Paul V. Samson from Future
                         University Hakodate & De La Salle University and Unisse
                         C. Chua from De La Salle University. I came to know
-                        about this project in Dec 2019 during Ms. Chua’s
+                        about this project in Dec 2019 during Ms. Chua&#39;s
                         presentation on Data Science and Data Communication,
                         emphasizing the importance of data communication.{" "}
                       </li>
@@ -455,13 +456,13 @@ export default function ProjectPage() {
                   <section className="mt-2 text-tuna/60">
                     <h5 className="text-tuna/80">What I like about it:</h5>
                     <ul className="mx-2">
-                      <li className="list-disc list-outside ml-7 py-2">
+                      <li className="list-disc list-outside ml-7 my-2">
                         Information on an area in different aspects (Climate and
                         Annual Precipitation, Population, Evacuation Areas,
                         Ideal Coverage, Estimated Coverage, Accessibility,
                         Suitability)
                       </li>
-                      <li className="list-disc list-outside ml-7 py-2">
+                      <li className="list-disc list-outside ml-7 my-2">
                         Interactive, 3D maps, scrollytelling!
                       </li>
                     </ul>
@@ -471,13 +472,140 @@ export default function ProjectPage() {
                   <section className="mt-2 text-tuna/60">
                     <h5 className="text-tuna/80">Other thoughts:</h5>
                     <ul className="mx-2">
-                      <li className="list-disc list-outside ml-7 py-2">
-                        The storytelling format isn’t applicable on a national
-                        scale, at least not yet—we’ll need to coordinate with
-                        the different and specific local government units to
-                        achieve what Ms Chua and Mr. Samson did with their
-                        project, an endeavor we don’t have the capacity to
-                        perform at the moment
+                      <li className="list-disc list-outside ml-7 my-2">
+                        The storytelling format isn&#39;t applicable on a
+                        national scale, at least not yet—we&#39;ll need to
+                        coordinate with the different and specific local
+                        government units to achieve what Ms Chua and Mr. Samson
+                        did with their project, an endeavor we don&#39;t have
+                        the capacity to perform at the moment
+                      </li>
+                    </ul>
+                  </section>
+                </article>
+
+                {/* app 2 */}
+                <article>
+                  <h4 className="mt-5 text-h5 md:text-h4 font-heading">
+                    Project 2: May Pasok Ba
+                  </h4>
+
+                  {/* Link */}
+                  <section className="mt-2 text-tuna/60">
+                    <h5 className="text-tuna/80">Link:</h5>
+                    <ul className="mx-2">
+                      <li className="list-disc list-outside ml-7 my-2">
+                        <a href="https://maypasokba.com/" target="_blank">
+                          https://maypasokba.com/
+                        </a>
+                      </li>
+                    </ul>
+                  </section>
+
+                  {/* Preview */}
+                  <section className="mt-2 text-tuna/60">
+                    <h5 className="text-tuna/80">Preview:</h5>
+                    <div className="my-4 mx-6">
+                      <img
+                        src="/images/portfolio/noah-revamped/preview-maypasokba.webp"
+                        alt="preview of sample project"
+                      />
+                    </div>
+                  </section>
+
+                  {/* What is it */}
+                  <section className="mt-2 text-tuna/60">
+                    <h5 className="text-tuna/80">What is it:</h5>
+                    <ul className="mx-2">
+                      <li className="list-disc list-outside ml-7 my-2">
+                        “May Pasok Ba” literally just asks if there&#39;s school
+                        or work today, in the context of typhoon suspensions or
+                        national holidays
+                      </li>
+                    </ul>
+                  </section>
+
+                  {/* What I like about it */}
+                  <section className="mt-2 text-tuna/60">
+                    <h5 className="text-tuna/80">What I like about it:</h5>
+                    <ul className="mx-2">
+                      <li className="list-disc list-outside ml-7 my-2">
+                        Simple and straightforward answer. Sometimes news
+                        articles tend to bloat the info with the speed of wind
+                        and direction, instead of answering the question
+                        directly on whether there&#39;s classes or work during
+                        the day
+                      </li>
+                    </ul>
+                  </section>
+
+                  {/* Other thoughts */}
+                  <section className="mt-2 text-tuna/60">
+                    <h5 className="text-tuna/80">Other thoughts:</h5>
+                    <ul className="mx-2">
+                      <li className="list-disc list-outside ml-7 my-2">
+                        Too simple, doesn&#39;t always cite sources, doesn&#39;t
+                        necessarily cover the entire Philippines
+                      </li>
+                    </ul>
+                  </section>
+                </article>
+
+                {/* app 3 */}
+                <article>
+                  <h4 className="mt-5 text-h5 md:text-h4 font-heading">
+                    Project 3: USGS TopoView
+                  </h4>
+
+                  {/* Link */}
+                  <section className="mt-2 text-tuna/60">
+                    <h5 className="text-tuna/80">Link:</h5>
+                    <ul className="mx-2">
+                      <li className="list-disc list-outside ml-7 my-2 break-all">
+                        <a
+                          href="https://ngmdb.usgs.gov/topoview/viewer/#4/39.98/-100.06"
+                          target="_blank">
+                          https://ngmdb.usgs.gov/topoview/viewer/#4/39.98/-100.06
+                        </a>
+                      </li>
+                    </ul>
+                  </section>
+
+                  {/* Preview */}
+                  <section className="mt-2 text-tuna/60">
+                    <h5 className="text-tuna/80">Preview:</h5>
+                    <div className="my-4 mx-6">
+                      <img
+                        src="/images/portfolio/noah-revamped/preview-topoview.gif"
+                        alt="preview of sample project"
+                      />
+                    </div>
+                  </section>
+
+                  {/* What is it */}
+                  <section className="mt-2 text-tuna/60">
+                    <h5 className="text-tuna/80">What is it:</h5>
+                    <ul className="mx-2">
+                      <li className="list-disc list-outside ml-7 my-2">
+                        TopoView shows the many and varied topographic maps of
+                        areas through history. This can be particularly useful
+                        for historical purposes, such as finding the names of
+                        natural and cultural features that have changed over
+                        time.
+                      </li>
+                    </ul>
+                  </section>
+
+                  {/* What I like about it */}
+                  <section className="mt-2 text-tuna/60">
+                    <h5 className="text-tuna/80">What I like about it:</h5>
+                    <ul className="mx-2">
+                      <li className="list-disc list-outside ml-7 my-2">
+                        Beautiful, on-brand, and intuitive interface
+                      </li>
+                      <li className="list-disc list-outside ml-7 my-2">
+                        Complex controls while maintaining mobile-responsive
+                        design
                       </li>
                     </ul>
                   </section>
