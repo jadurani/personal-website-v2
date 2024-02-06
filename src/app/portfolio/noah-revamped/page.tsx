@@ -1,6 +1,9 @@
 import ContactPrompt from "@components/ContactPrompt/ContactPrompt";
 import { NavBar } from "@components/NavBar/NavBar";
 import { Metadata } from "next";
+// import Image from "next/image";
+
+// import previewProjectComet from "@assets/images/portfolio/noah-revamped/preview-comet.gif";
 
 export const metadata: Metadata = {
   title: "Project NOAH, Revamped! | Jadurani Davalos",
@@ -404,15 +407,78 @@ export default function ProjectPage() {
                 </p>
 
                 <article>
-                  <h4 className="text-h5 md:text-h4 font-heading">
+                  <h4 className="mt-5 text-h5 md:text-h4 font-heading">
                     Marikina Flood-Risk Visualization
                   </h4>
 
                   {/* Link */}
-                  <section>
-                    <h5></h5>
-                    <ul>
-                      <li></li>
+                  <section className="mt-2 text-tuna/60">
+                    <h5 className="text-tuna/80">Link:</h5>
+                    <ul className="mx-2">
+                      <li className="list-disc list-outside ml-7 py-2">
+                        <a
+                          href="http://comet.dlsu.edu.ph/riesgo-vis/"
+                          target="_blank">
+                          http://comet.dlsu.edu.ph/riesgo-vis/
+                        </a>
+                      </li>
+                    </ul>
+                  </section>
+
+                  {/* Preview */}
+                  <section className="mt-2 text-tuna/60">
+                    <h5 className="text-tuna/80">Preview:</h5>
+                    <div className="my-4 mx-6">
+                      <img
+                        src="/images/portfolio/noah-revamped/preview-comet.gif"
+                        alt="preview of sample project"
+                      />
+                    </div>
+                  </section>
+
+                  {/* What is it */}
+                  <section className="mt-2 text-tuna/60">
+                    <h5 className="text-tuna/80">What is it:</h5>
+                    <ul className="mx-2">
+                      <li className="list-disc list-outside ml-7 py-2">
+                        This is a project by Briane Paul V. Samson from Future
+                        University Hakodate & De La Salle University and Unisse
+                        C. Chua from De La Salle University. I came to know
+                        about this project in Dec 2019 during Ms. Chua’s
+                        presentation on Data Science and Data Communication,
+                        emphasizing the importance of data communication.{" "}
+                      </li>
+                    </ul>
+                  </section>
+
+                  {/* What I like about it */}
+                  <section className="mt-2 text-tuna/60">
+                    <h5 className="text-tuna/80">What I like about it:</h5>
+                    <ul className="mx-2">
+                      <li className="list-disc list-outside ml-7 py-2">
+                        Information on an area in different aspects (Climate and
+                        Annual Precipitation, Population, Evacuation Areas,
+                        Ideal Coverage, Estimated Coverage, Accessibility,
+                        Suitability)
+                      </li>
+                      <li className="list-disc list-outside ml-7 py-2">
+                        Interactive, 3D maps, scrollytelling!
+                      </li>
+                    </ul>
+                  </section>
+
+                  {/* Other thoughts */}
+                  <section className="mt-2 text-tuna/60">
+                    <h5 className="text-tuna/80">Other thoughts:</h5>
+                    <ul className="mx-2">
+                      <li className="list-disc list-outside ml-7 py-2">
+                        The storytelling format isn’t applicable on a national
+                        scale, at least not yet—we’ll need to coordinate with
+                        the different and specific local government units to
+                        achieve what Ms Chua and Mr. Samson did with their
+                        project, an endeavor we don’t have the capacity to
+                        perform at the moment
+                      </li>
                     </ul>
                   </section>
                 </article>
