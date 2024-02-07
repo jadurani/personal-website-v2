@@ -7,20 +7,22 @@ const Footer = () => (
     <div className="container max-w-6xl mx-auto p-8 flex flex-col md:flex-row items-center justify-between">
       <nav className="flex flex-col md:flex-row items-center">
         {/* Logo */}
-        <svg xmlns="http://www.w3.org/2000/svg" width="61" height="32">
-          <path
-            fill="#FFFFFF"
-            fillRule="evenodd"
-            d="M60.082 5.878L44.408 32 28.735 5.878h31.347zM15.673 0l15.674 26.122H0L15.673 0z"
-          />
-        </svg>
+        <Link href="/" className="border-0">
+          <svg xmlns="http://www.w3.org/2000/svg" width="61" height="32">
+            <path
+              fill="#FFFFFF"
+              fillRule="evenodd"
+              d="M60.082 5.878L44.408 32 28.735 5.878h31.347zM15.673 0l15.674 26.122H0L15.673 0z"
+            />
+          </svg>
+        </Link>
 
         <ul className="md:ml-8 flex items-center flex-col md:flex-row gap-4 mt-5 md:mt-auto">
           {NAV_LINKS.map((navLink, idx) => (
-            <li
-              key={idx}
-              className={`p-4 text-center text-body2 uppercase tracking-widest hover:text-verdigris transition-colors`}>
-              <Link href={navLink.path} className="block">
+            <li key={idx} className="p-4 text-center ">
+              <Link
+                href={navLink.path}
+                className="block border-0 text-body2 uppercase text-white tracking-widest hover:text-verdigris transition-colors">
                 {navLink.label}
               </Link>
             </li>
@@ -30,6 +32,7 @@ const Footer = () => (
 
       <div className="flex items-center justify-center md:justify-end gap-4 my-8 md:my-auto">
         <Link
+          className="border-0"
           href={"https://github.com/jadurani"}
           target="_blank"
           aria-label="Visit my Github profile">
@@ -42,6 +45,7 @@ const Footer = () => (
         </Link>
 
         <Link
+          className="border-0"
           href={"https://twitter.com/jadurani"}
           target="_blank"
           aria-label="Visit my Twitter profile">
@@ -54,6 +58,7 @@ const Footer = () => (
         </Link>
 
         <Link
+          className="border-0"
           href={"https://www.linkedin.com/in/jadurani/"}
           target="_blank"
           aria-label="Visit my LinkedIn profile">
