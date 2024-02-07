@@ -1,9 +1,6 @@
 import ContactPrompt from "@components/ContactPrompt/ContactPrompt";
 import { NavBar } from "@components/NavBar/NavBar";
 import { Metadata } from "next";
-// import Image from "next/image";
-
-// import previewProjectComet from "@assets/images/portfolio/noah-revamped/preview-comet.gif";
 
 export const metadata: Metadata = {
   title: "Project NOAH, Revamped! | Jadurani Davalos",
