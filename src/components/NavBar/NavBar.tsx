@@ -44,7 +44,7 @@ export const NavBar = ({ activeRoute }: NavBarProps) => {
           isTransparent ? "bg-white/0" : "bg-white"
         } transition-colors duration-300 ease-in-out`}>
         <nav className="container max-w-6xl mx-auto p-8 lg:py-6 flex justify-between items-center lg:items-start">
-          <Link href="/">
+          <Link href="/" className="border-0">
             <Image src={logoImg} alt="website logo" />
           </Link>
 
@@ -55,10 +55,12 @@ export const NavBar = ({ activeRoute }: NavBarProps) => {
 
             <ul className="py-4 hidden md:flex md:gap-8 justify-stretch items-end">
               {NAV_LINKS.map((navLink, idx) => (
-                <li
-                  key={idx}
-                  className={`text-body2 uppercase tracking-widest hover:text-verdigris transition-colors ${activeRoute == navLink.path ? "text-verdigris" : "text-tuna"}`}>
-                  <Link href={navLink.path}>{navLink.label}</Link>
+                <li key={idx}>
+                  <Link
+                    href={navLink.path}
+                    className={`text-body2 border-0 uppercase tracking-widest hover:text-verdigris transition-colors ${activeRoute == navLink.path ? "text-verdigris" : "text-tuna"}`}>
+                    {navLink.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -69,7 +71,7 @@ export const NavBar = ({ activeRoute }: NavBarProps) => {
           className={`${isMenuOpen ? "right-0" : "-right-[120%]"} transition-[right] top-0 fixed bg-eggshell w-screen h-screen duration-700 ease-in-out overflow-hidden z-50`}>
           <div className="h-full flex flex-col justify-between">
             <div className="flex justify-between">
-              <Link href="/" className="p-8">
+              <Link href="/" className="p-8 border-0">
                 <Image src={logoImg} alt="website logo" />
               </Link>
               <button className="p-8" onClick={() => setIsMenuOpen(false)}>
@@ -82,8 +84,10 @@ export const NavBar = ({ activeRoute }: NavBarProps) => {
                 <li
                   key={idx}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`w-full py-4 text-center text-body2 uppercase tracking-widest hover:text-verdigris transition-colors ${activeRoute == navLink.path ? "text-verdigris" : "text-tuna"}`}>
-                  <Link href={navLink.path} className="block">
+                  className="w-full py-4 text-center">
+                  <Link
+                    href={navLink.path}
+                    className={`block text-body2 border-0 uppercase tracking-widest hover:text-verdigris transition-colors ${activeRoute == navLink.path ? "text-verdigris" : "text-tuna"}`}>
                     {navLink.label}
                   </Link>
                 </li>
