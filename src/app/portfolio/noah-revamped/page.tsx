@@ -446,12 +446,23 @@ export default function ProjectPage() {
                     <h5 className="text-tuna/80">What is it:</h5>
                     <ul className="mx-2">
                       <li className="list-disc list-outside ml-7 my-2">
-                        This is a project by Briane Paul V. Samson from Future
-                        University Hakodate & De La Salle University and Unisse
-                        C. Chua from De La Salle University. I came to know
-                        about this project in Dec 2019 during Ms. Chua&#39;s
-                        presentation on Data Science and Data Communication,
-                        emphasizing the importance of data communication.{" "}
+                        This is a project by Briane Paul V. Samson from{" "}
+                        <a href="https://www.fun.ac.jp/en/" target="_blank">
+                          Future University Hakodate
+                        </a>{" "}
+                        &{" "}
+                        <a href="https://www.dlsu.edu.ph/" target="_blank">
+                          De La Salle University
+                        </a>{" "}
+                        and Unisse C. Chua from{" "}
+                        <a href="https://www.dlsu.edu.ph/" target="_blank">
+                          De La Salle University
+                        </a>
+                        . I came to know about this project in Dec 2019 during
+                        Ms. Chua&#39;s presentation on Data Science and Data
+                        Communication, emphasizing the importance of sharing
+                        your reserach findings and the data that you gathered in
+                        ways that are consumable to the public.{" "}
                       </li>
                     </ul>
                   </section>
@@ -461,10 +472,10 @@ export default function ProjectPage() {
                     <h5 className="text-tuna/80">What I like about it:</h5>
                     <ul className="mx-2">
                       <li className="list-disc list-outside ml-7 my-2">
-                        Information on an area in different aspects (Climate and
-                        Annual Precipitation, Population, Evacuation Areas,
-                        Ideal Coverage, Estimated Coverage, Accessibility,
-                        Suitability)
+                        Illustrated information on an area in different aspects
+                        (Climate and Annual Precipitation, Population,
+                        Evacuation Areas, Ideal Coverage, Estimated Coverage,
+                        Accessibility, Suitability).
                       </li>
                       <li className="list-disc list-outside ml-7 my-2">
                         Interactive, 3D maps, scrollytelling!
