@@ -20,7 +20,7 @@ export default function ProjectPage() {
             <img
               alt="project preview for the Project NOAH, Revamped!"
               className="object-contain lg:object-cover w-full h-full"
-              src={"/images/portfolio/noah-revamped/noah-page-cover.webp"}
+              src={"/images/portfolio/360degrees/360degrees-page-cover.webp"}
             />
           </div>
         </div>
@@ -132,18 +132,30 @@ export default function ProjectPage() {
                 The first version of the website was built 10 years ago. This
                 was what they had prior to the revamp:
               </p>
+              <div className="relative w-full h-full my-2">
+                <img
+                  alt="project preview for the Project NOAH, Revamped!"
+                  className="object-contain lg:object-cover w-full h-full"
+                  src="/images/portfolio/360degrees/old-360degrees-landing.jpg"
+                />
+              </div>
               <p className="py-2.5 text-justify text-tuna/60">
-                After viewing the client&#39;s own portfolio projects, it was
-                clear to me that they needed a simple but modern-looking website
-                that highlights their own magic. Having too much “fluff” on
-                their website might compete with the primary objective of
-                actually showcasing the company&#39;s work.
+                After viewing the client&#39;s{" "}
+                <a
+                  href="https://www.360degreessystemscorporation.com/projects/"
+                  target="_blank">
+                  own portfolio projects
+                </a>
+                , it was clear to me that they needed a simple but
+                modern-looking website that highlights their own magic. Having
+                too much “fluff” on their website might compete with the primary
+                objective of actually showcasing the company&#39;s work.
               </p>
               <p className="py-2.5 text-justify text-tuna/60">
-                The client had a new logo coming up with the website revamp.
-                They have another contractor working on it. While waiting for
-                the final logo, I worked on drafting some wireframes based on
-                the outline that was given to me in one of our initial meetings.
+                The client had a new logo coming up with the website revamp and
+                they had another contractor working on it. While waiting for the
+                final logo, I worked on drawing the wireframes based on the
+                outline they have given to me in one of our initial meetings.
               </p>
               <p className="py-2.5 text-justify text-tuna/60">
                 Upon receiving the updated logo, I decided on the colors and
@@ -175,7 +187,7 @@ export default function ProjectPage() {
                 Building on a brownfield 🏗️
               </h2>
               <p className="py-2.5 text-justify text-tuna/60">
-                While building the designs were a breeze, we encountered a few
+                Although building the designs was a breeze, we encountered a few
                 challenges in the website development and deployments, having
                 multiple missing or misconfigured records and no one knows who
                 has access to what anymore and there were no documentations on
@@ -209,9 +221,9 @@ export default function ProjectPage() {
                 Mission accomplished 🚀
               </h2>
               <p className="py-2.5 text-justify text-tuna/60">
-                Overall, I had a great time working with this client and I&#39;m
-                glad that I could help them design and build a website that met
-                the company&#39;s needs.
+                Overall, I had a fun working on this project and I&#39;m glad
+                that I could help them design and build a website that met the
+                company&#39;s needs.
               </p>
             </article>
           </div>
