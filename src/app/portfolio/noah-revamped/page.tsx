@@ -846,6 +846,90 @@ export default function ProjectPage() {
                   </p>
                 </article>
               </article>
+
+              {/* 5 - Results and Outcome */}
+              <article>
+                <h3 className="mt-4 text-h4 md:text-h3 font-heading">
+                  5 - Results and Outcome
+                </h3>
+
+                <p className="text-tuna/60 py-2 text-justify">
+                  Six months after its launch, the revamped NOAH website have
+                  reached nearly two million sessions through organic traffic:{" "}
+                </p>
+                <div className="mx-auto my-4 w-[250px] h-[209px] sm:w-[500px] sm:h-[419px]">
+                  <iframe
+                    src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FUPNOAH%2Fposts%2Fpfbid02WkD9xx2TLGhUvG1jJDsy8THq3yxSghdwG8gZx5G9xKevtrTaTaXc9nWrfK8rJSwgl&show_text=false&width=500"
+                    className="h-full w-full border-0 overflow-hidden"
+                    scrolling="no"
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                </div>
+
+                <p className="text-tuna/60 py-2 text-justify">
+                  As featured in:
+                </p>
+                <ol>
+                  <li className="list-disc list-outside ml-7 py-1">
+                    <a
+                      target="_blank"
+                      href="https://interaksyon.philstar.com/trends-spotlights/2021/10/08/201995/up-noah-finally-launches-new-website-with-hazard-assessments-of-philippine-areas/">
+                      [PhilStar] UP NOAH finally launches new website with
+                      hazard assessments of Philippine areas
+                    </a>
+                  </li>
+                  <li className="list-disc list-outside ml-7 py-1">
+                    <a
+                      target="_blank"
+                      href="https://www.rappler.com/newsbreak/iq/159975-project-noah-contribute-ph-disaster-management/">
+                      [Rappler] How does Project NOAH contribute to PH&#39;s
+                      disaster management?
+                    </a>
+                  </li>
+                  <li className="list-disc list-outside ml-7 py-1">
+                    <a
+                      target="_blank"
+                      href="https://www.goodnewspilipinas.com/how-up-noah-helps-build-filipino-resilience-against-disaster/">
+                      [Good News Pilipinas] How UP NOAH helps build Filipino
+                      resilience against disaster
+                    </a>
+                  </li>
+                </ol>
+              </article>
+
+              {/* 6 - Feature Wishlist */}
+              <article>
+                <h3 className="mt-4 text-h4 md:text-h3 font-heading">
+                  6 - Wishlist💫
+                </h3>
+
+                <p className="text-tuna/60 py-2 text-justify">
+                  Here are other features and improvements that I think would be
+                  great to be included in the web app or created as spinoffs:{" "}
+                </p>
+                <ol className="text-tuna/60">
+                  <li className="list-disc list-outside ml-7 py-1">
+                    Translations (we have roughly 180 live languages)
+                  </li>
+                  <li className="list-disc list-outside ml-7 py-1">
+                    Update shapefiles (these were from 2012; the Philippine
+                    landscape must have changed since then); Higher resolution
+                  </li>
+                  <li className="list-disc list-outside ml-7 py-1">
+                    Cover missing areas — there were areas that were not
+                    completed for the hazard maps of different “levels”
+                  </li>
+                  <li className="list-disc list-outside ml-7 py-1">
+                    Evacuation centers to be clearly identified and in
+                    real-time. The “Critical Facilities” featured in the current
+                    iteration of the website CAN be evacuation centers but
+                    aren&#39;t ALWAYS assigned as facilities for evacuation.
+                  </li>
+                </ol>
+                <p className="text-tuna/60 py-2 text-justif italic">
+                  Note that these are my personal sentiments and do not
+                  represent UP and UPRI - NOAH.
+                </p>
+              </article>
             </article>
           </div>
         </div>
