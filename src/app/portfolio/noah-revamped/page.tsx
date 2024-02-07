@@ -202,14 +202,14 @@ export default function ProjectPage() {
               </div>
             </article>
 
-            {/* Design and Development */}
+            {/* Implementation Details */}
             <article>
               <h2 className="mt-6 text-h3 md:text-h2 font-heading">
-                Design and Development
+                Implementation Details
               </h2>
               <p className="text-tuna/60 py-2 text-justify">
-                In this piece, I&#39;ll walk you through the process we&#39;ve
-                taken in the revamp.
+                This was such a huge adventure for me and read on to know more
+                about the process we&#39;ve taken to accomplish this.
               </p>
 
               {/* 1 - Goals and Objectives */}
@@ -227,16 +227,16 @@ export default function ProjectPage() {
                   </a>
                   , we gathered information on why we are doing the revamp,
                   what&#39;s our definition of done, who&#39;s our intended
-                  audience, etc.
+                  audience. Who wants the revamp anyway?
                 </p>
                 <p className="text-tuna/60 py-2 text-justify">
-                  The stakeholder being interviewed at the time was UP
-                  NOAH&#39;s Executive Director, Dr. Mahar Lagmay, and
-                  here&#39;s what can be concluded from{" "}
+                  Together with the UPRI Core WebGIS team, the stakeholder being
+                  interviewed at the time was UP NOAH&#39;s Executive Director,
+                  Dr. Mahar Lagmay, and here&#39;s what can be concluded from{" "}
                   <a
                     href="https://docs.google.com/document/d/1BJmljHRpmcv01zHlHQBx7JuVglpGcKhpr5K29qleA9w/edit?usp=sharing"
                     target="_blank">
-                    his answers
+                    the interview
                   </a>
                   :
                 </p>
@@ -252,6 +252,10 @@ export default function ProjectPage() {
                     Provide all the data we have to users who need to see things
                     in the macro in a clear and organized manner, such as
                     researchers and policy makers
+                  </li>
+                  <li className="list-disc list-outside ml-7 py-2">
+                    The current tech stack is outdated, making it brittle and
+                    difficult to introduce more features
                   </li>
                 </ol>
               </article>
@@ -355,11 +359,11 @@ export default function ProjectPage() {
                     Technical Implementation
                   </h4>
                   <p className="text-tuna/60 py-2 text-justify">
-                    The NOAH website was built with the first version of React
-                    mixed with jQuery and BootstrapCSS. All hazard maps rendered
-                    in the browser were in the form of geo-tagged PNG files,
-                    queried from GeoServer given the bounding box computed from
-                    the user&#39;s screen.
+                    The old NOAH website was built with the first version of
+                    React mixed with jQuery and BootstrapCSS. All hazard maps
+                    rendered in the browser were in the form of geo-tagged PNG
+                    files, queried from GeoServer given the bounding box
+                    computed from the user&#39;s screen.
                   </p>
                   <p className="text-tuna/60 py-2 text-justify">
                     There were other features that NOAH hosts but our main focus
@@ -609,6 +613,237 @@ export default function ProjectPage() {
                       </li>
                     </ul>
                   </section>
+                </article>
+
+                <p className="text-tuna/60 py-2 text-justify">
+                  The key item that I personally liked in these project is how
+                  usable they are and how effective they deliver information
+                  visually and interactively. This is what inspired me the most
+                  in designing the other features of the app, which I&#39;ll
+                  discuss in the next section.
+                </p>
+              </article>
+
+              {/* 4 - The Dance Between Design and Tech */}
+              <article>
+                <h3 className="mt-4 text-h4 md:text-h3 font-heading">
+                  4 - The Dance Between Design and Tech
+                </h3>
+                <p className="text-tuna/60 py-2 text-justify">
+                  Given the goals of the project, target user segments, and some
+                  design inspirations, I came up with the following design
+                  ideas:
+                </p>
+
+                <article>
+                  <h4 className="mt-5 text-h5 md:text-h4 font-heading">
+                    Design Idea 1: Know Your Hazard
+                  </h4>
+                  <p className="text-tuna/60 py-2 text-justify">
+                    The idea is for a user to only share their location for them
+                    to be know the hazards in their area, whether that&#39;s
+                    flood, landslides, and storm surges. They don&#39;t need to
+                    know the technicalities under it and how it was determined.
+                    They just need to informed of the hazards in their area so
+                    they can prepare accordingly.
+                  </p>
+                  <p className="text-tuna/60 py-2 text-justify">
+                    Going back to the plane analogy, they just need a “ride” to
+                    get to their destination as opposed to learning the inner
+                    workings of a car.
+                  </p>
+                </article>
+
+                <article>
+                  <h4 className="mt-5 text-h5 md:text-h4 font-heading">
+                    Design Idea 2: NOAH Studio
+                  </h4>
+                  <p className="text-tuna/60 py-2 text-justify">
+                    For the technical users, I wanted them to have a
+                    “playground” through which they could use all the hazard
+                    maps that we have and super-impose them on top of one
+                    another. These users have specialized knowledge on hazards
+                    and disaster risk and reduction such as our policy makers,
+                    urban planners, mayors, and GIS researchers. They should be
+                    given as much control on how they want to view data as they
+                    see fit. For this segment of users, I give them the “NOAH
+                    Playground”. (We later renamed it to “NOAH Studio“ since
+                    “Playground” sounded too jovial for a product that directly
+                    deals with life and death scenarios. 👀)
+                  </p>
+                  <p className="text-tuna/60 py-2 text-justify"></p>
+                </article>
+
+                <article>
+                  <h4 className="mt-5 text-h5 md:text-h4 font-heading">
+                    The Challenge
+                  </h4>
+                  <p className="text-tuna/60 py-2 text-justify">
+                    Before I could create detailed mock-ups of these features, I
+                    wanted to first confirm how feasible are they and how costly
+                    would it be to make them possible. Honestly, I got into some
+                    sort of deadlock during the design phase because although I
+                    had an idea of what I wanted our users to experience, I
+                    could not go into the details of how the interface would
+                    look like unless I already knew what was possible in the
+                    first place.
+                  </p>
+
+                  <p className="text-tuna/60 py-2 text-justify">
+                    To translate the design ideas above, we needed answers to
+                    these questions:
+                  </p>
+                  <ol className="text-tuna/60">
+                    <li className="list-disc list-outside ml-7 py-2">
+                      Given a pair of coordinates, how can we determine the
+                      hazards in the area?
+                    </li>
+                    <li className="list-disc list-outside ml-7 py-2">
+                      Given the whole map of the Philippines, how can we view
+                      all the hazards at the same time?
+                    </li>
+                    <li className="list-disc list-outside ml-7 py-2">
+                      Given GeoServer and the user&#39;s coordinates (and not
+                      the bounding box), can we determine a single hazard level
+                      in their area?
+                    </li>
+                    <li className="list-disc list-outside ml-7 py-2">
+                      Can we determine ALL of the hazards in an area at the same
+                      time (regardless of type), in one query? At what cost?
+                      (This was a major design concern. If we it takes a while
+                      to query all hazards within a certain radius of user&#39;s
+                      coordinates, might as well design the user experience such
+                      that they will only view one hazard at a time and walk
+                      them through the hazards similar to how{" "}
+                      <a
+                        href="http://comet.dlsu.edu.ph/riesgo-vis/"
+                        target="_blank">
+                        Marikina Flood-Risk Visualization
+                      </a>{" "}
+                      communicated their data.)
+                    </li>
+                    <li className="list-disc list-outside ml-7 py-2">
+                      What other alternatives do we have to GeoServer? Why were
+                      we using it?
+                    </li>
+                    <li className="list-disc list-outside ml-7 py-2">
+                      Geo-tagged PNG files must have been in another form before
+                      it was rasterized as a PNG file and served by GeoServer.
+                      What was the format of the data before they were PNG
+                      files?
+                    </li>
+                    <li className="list-disc list-outside ml-7 py-2">
+                      If NOAH&#39;s web app displays the hazard levels as
+                      geo-tagged PNG files that are colored 0, 1, and 2, is it
+                      possible to change the colors IN THE BROWSER?
+                    </li>
+                  </ol>
+
+                  <p className="text-tuna/60 py-2 text-justify">
+                    These questions belong to the first batch of questions that
+                    later on spawned more follow-up questions and answers, all
+                    which I&#39;ve drawn in the following mindmap:
+                  </p>
+                  <div className="mx-auto mt-4 mb-8 w-[250px] h-[140px] xs:w-[320px] xs:h-[180px] sm:w-[560px] sm:h-[315px]">
+                    <iframe
+                      className="h-full w-full overflow-hidden"
+                      src="https://www.mindmeister.com/maps/public_map_shell/3148646278/noah-revamp?width=600&height=400&z=auto&live_update=1&no_share=1&no_logo=1"
+                      scrolling="no">
+                      Your browser is not able to display frames. Please visit{" "}
+                      <a
+                        href="https://www.mindmeister.com/3148646278/noah-revamp"
+                        target="_blank">
+                        NOAH Revamp
+                      </a>{" "}
+                      on MindMeister.
+                    </iframe>
+                    <div className="mb-5">
+                      <a
+                        href="https://www.mindmeister.com/3148646278/noah-revamp"
+                        target="_blank">
+                        NOAH Revamp
+                      </a>{" "}
+                      by{" "}
+                      <a
+                        href="https://www.mindmeister.com/users/channel/68768196"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        Jadurani Davalos
+                      </a>
+                    </div>
+                  </div>
+
+                  <p className="text-tuna/60 py-2 text-justify">
+                    Feel free to hit me up if you want me to go over all the
+                    technical details included in the mindmap above, but
+                    I&#39;ll just summarize what happened next:
+                  </p>
+
+                  <ol className="text-tuna/60">
+                    <li className="list-disc list-outside ml-7 py-2">
+                      After exploring possibilities with GeoServer and hitting a
+                      wall so costly to handle, we deemed it best to use Mapbox
+                      for storing and displaying our geospatial data. We wanted
+                      to stay focused on the main goal of the revamp, which is
+                      to communicate the data we already have, instead of
+                      recreating and maintaining the wheel. It was more costly
+                      to do it ourselves than to pay and use an existing
+                      platform that specializes on the functionalities we
+                      wanted.
+                    </li>
+                    <li className="list-disc list-outside ml-7 py-2">
+                      We&#39;ve uploaded our shapefiles in Mapbox and we started
+                      rendering the hazard maps as vector tilesets in the
+                      browser, making it possible to customize their colors and
+                      transparency on the fly.
+                    </li>
+                    <li className="list-disc list-outside ml-7 py-2">
+                      Prince and Dianne of the backend team did a great job at
+                      processing the shapefiles to make it “lighter” on the UI
+                      to render them at the same time, allowing us to render
+                      hazard maps that cover the entire country without waiting
+                      for a whole minute to load. You may view their scripts at{" "}
+                      <a
+                        href="https://github.com/UPRI-NOAH/mapbox-processor"
+                        target="_blank">
+                        https://github.com/UPRI-NOAH/mapbox-processor
+                      </a>
+                    </li>
+                    <li className="list-disc list-outside ml-7 py-2">
+                      We entered a partnership program with Mapbox. Since then,
+                      they have forgiven our 💸 bills 💸 and{" "}
+                      <a
+                        href="https://www.mapbox.com/blog/mapmakers-take-action-on-climate-change"
+                        target="_blank">
+                        featured NOAH on their blog
+                      </a>{" "}
+                      🙏🏽
+                    </li>
+                    <li className="list-disc list-outside ml-7 py-2">
+                      For the Know-Your-Hazard feature, in the end we were able
+                      to evaluate the levels of ALL the hazards (floods,
+                      landslides, and storm surges) within a 50-meter radius of
+                      a user&#39;s coordinate.
+                    </li>
+                    <li className="list-disc list-outside ml-7 py-2">
+                      For the NOAH Studio, we were able to showcase all of the
+                      hazards in an area and give the user granular control on
+                      which hazards and critical facilities to view as well as
+                      their color and transparency. If you&#39;re wondering
+                      about the state management of the app, this was heavily
+                      reliant on RxJS.
+                    </li>
+                  </ol>
+
+                  <p className="text-tuna/60 py-2">
+                    You may view the frontend code at{" "}
+                    <a
+                      href="https://github.com/UPRI-NOAH/noah-frontend."
+                      target="_blank"
+                      rel="noopener noreferrer">
+                      https://github.com/UPRI-NOAH/noah-frontend.
+                    </a>
+                  </p>
                 </article>
               </article>
             </article>
