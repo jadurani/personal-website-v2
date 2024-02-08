@@ -1,7 +1,6 @@
 "use client";
 
 import devImage from "@assets/images/home/jadurani-davalos.webp";
-import imgLandingBG from "@assets/images/home/landing-bg.jpg";
 import { Button } from "@components/Button/Button";
 import ContactPrompt from "@components/ContactPrompt/ContactPrompt";
 import { NavBar } from "@components/NavBar/NavBar";
@@ -17,30 +16,38 @@ export default function Home() {
       <NavBar activeRoute={activeRoute}></NavBar>
 
       <main>
-        <div className="max-w-6xl px-8 container mx-auto mb-16 relative">
-          <div className="relative w-full h-full">
-            <Image
-              src={imgLandingBG}
-              alt="hero image"
-              className="object-cover object-center h-full"
-            />
-          </div>
-
-          <div className="bg-alabaster w-full md:bottom-0 md:left-8 md:absolute md:w-2/3 lg:w-2/5 z-10">
-            <h1 className="font-heading font-bold text-h2 py-8 leading-none md:text-h1">
-              Hey, I&#39;m Rani and I love building beautiful websites
+        <div className="max-w-6xl px-8 container mx-auto mb-16 relative py-12">
+          <div className="relative w-full max-w-4xl">
+            <h1 className="font-heading font-bold text-h3 sm:text-h2 md:text-h1 leading-tight">
+              Hey, I&#39;m Rani — a software engineer with a passion for people
+              and places.
             </h1>
+            <p className="text-tuna/60 my-4 leading-relaxed lg:leading-loose">
+              Turning coffee into code around the globe.
+            </p>
 
-            <Button
-              label="Resum&eacute;"
-              isPrimary={true}
-              handleClick={() =>
-                window.open(
-                  "/files/resume.pdf",
-                  "_blank",
-                  "noopener,noreferrer"
-                )
-              }></Button>
+            <p className="text-tuna/60 my-4 leading-relaxed lg:leading-loose">
+              Currently in{" "}
+              <a
+                href="https://maps.app.goo.gl/DxeCSMaJsuW6Dt6v8"
+                target="_blank">
+                New York, USA
+              </a>
+              .
+            </p>
+
+            <div className="mt-8">
+              <Button
+                label="Resum&eacute;"
+                isPrimary={true}
+                handleClick={() =>
+                  window.open(
+                    "/files/resume.pdf",
+                    "_blank",
+                    "noopener,noreferrer"
+                  )
+                }></Button>
+            </div>
           </div>
         </div>
 
