@@ -5,7 +5,7 @@ import FullNameInput from "@components/FullNameInput/FullNameInput";
 import React, { useState } from "react";
 
 import MessageTextarea from "@components/MessageTextarea/MessageTextarea";
-// import { saveToSpreadsheet } from "@lib/actions";
+import { saveToSpreadsheet } from "@lib/actions";
 
 export type ContactFormData = {
   fullName: string;
@@ -21,7 +21,7 @@ const initialFormState: ContactFormData = {
 
 const ContactForm: React.FC = () => {
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(true);
+  const [success, setSuccess] = useState(false);
   const [formData, setFormData] = useState<ContactFormData>(initialFormState);
 
   const resetForm = () => {
@@ -44,8 +44,8 @@ const ContactForm: React.FC = () => {
     }
 
     const rowData = [formData.fullName, formData.email, formData.message];
-    // const result = await saveToSpreadsheet(rowData);
-    // setSuccess(result.success);
+    const result = await saveToSpreadsheet(rowData);
+    setSuccess(result.success);
     setLoading(false);
   };
 
@@ -80,7 +80,6 @@ const ContactForm: React.FC = () => {
 
       {success && (
         <div className="h-full w-full text-neutral-800 flex flex-col items-center justify-center gap-1 text-center">
-          {/* <Image src={successCheckMark} alt="Success" /> */}
           <div className="text-h4 my-1 font-bold font-heading">
             Message sent!
           </div>
