@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 
 interface EmailInputProps {
+  disabled?: boolean;
   onBlur: (value: string) => void;
 }
 
-const EmailInput: React.FC<EmailInputProps> = ({ onBlur }) => {
+const EmailInput: React.FC<EmailInputProps> = ({
+  disabled = false,
+  onBlur,
+}) => {
   const [error, setError] = useState<string | null>(null);
 
   const handleBlur = (value: string) => {
@@ -23,17 +27,19 @@ const EmailInput: React.FC<EmailInputProps> = ({ onBlur }) => {
       <label
         className={`pl-4 block text-tuna font-header font-bold mb-1 ${
           error ? "text-error" : ""
-        }`}
-      >
+        }`}>
         Email
       </label>
       <input
         type="email"
-        className={`appearance-none border-2 w-full py-2 px-3 text-tuna bg-tuna/10 outline-none ${ error ? "border-error" : "focus:border-verdigris"}`}
+        disabled={disabled}
+        className={`appearance-none border-2 w-full py-2 px-3 text-tuna bg-tuna/10 outline-none disabled:cursor-not-allowed ${error ? "border-error" : "focus:border-verdigris"}`}
         placeholder="email@address.com"
         onBlur={(e) => handleBlur(e.target.value)}
       />
-      <p className="absolute bottom-1 pl-4 text-error font-bold italic text-body2">{error}</p>
+      <p className="absolute bottom-1 pl-4 text-error font-bold italic text-body2">
+        {error}
+      </p>
     </div>
   );
 };

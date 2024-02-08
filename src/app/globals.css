@@ -8,6 +8,6 @@ body {
   @apply font-body text-tuna bg-alabaster;
 }
 
-a {
+a, .link {
   @apply text-verdigris cursor-pointer border-b border-solid border-b-elephant/0 hover:border-b-verdigris transition-colors;
 }

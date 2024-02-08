@@ -5,7 +5,7 @@ import FullNameInput from "@components/FullNameInput/FullNameInput";
 import React, { useState } from "react";
 
 import MessageTextarea from "@components/MessageTextarea/MessageTextarea";
-// import { saveToSpreadsheet } from "@lib/actions";
+import { saveToSpreadsheet } from "@lib/actions";
 
 export type ContactFormData = {
   fullName: string;
@@ -13,14 +13,22 @@ export type ContactFormData = {
   message: string;
 };
 
+const initialFormState: ContactFormData = {
+  fullName: "",
+  email: "",
+  message: "",
+};
+
 const ContactForm: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [formData, setFormData] = useState<ContactFormData>({
-    fullName: "",
-    email: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState<ContactFormData>(initialFormState);
+
+  const resetForm = () => {
+    setLoading(false);
+    setSuccess(false);
+    setFormData(initialFormState);
+  };
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,50 +44,51 @@ const ContactForm: React.FC = () => {
     }
 
     const rowData = [formData.fullName, formData.email, formData.message];
-    // const result = await saveToSpreadsheet(rowData);
-    // setSuccess(result.success);
+    const result = await saveToSpreadsheet(rowData);
+    setSuccess(result.success);
     setLoading(false);
   };
 
   return (
-    <div className="w-full py-6">
-      {/* SENDING */}
-      {loading && (
-        <div className="h-full w-full font-header font-bold text-neutral-800 flex flex-col items-center justify-center gap-1 text-center">
-          <div className="text-h4 my-1">Sending...</div>
-        </div>
-      )}
-
+    <div className="w-full py-6 h-[480px]">
       {/* ACTUAL FORM */}
-      {!loading && !success && (
+      {!success && (
         <form onSubmit={handleFormSubmit} className="w-full mx-auto">
           <FullNameInput
+            disabled={loading}
             onBlur={(value) => setFormData({ ...formData, fullName: value })}
           />
           <EmailInput
+            disabled={loading}
             onBlur={(value) => setFormData({ ...formData, email: value })}
           />
 
           <MessageTextarea
+            disabled={loading}
             onBlur={(value) => setFormData({ ...formData, message: value })}
           />
           <button
             type="submit"
-            className={`transition-colors text-tuna border solid border-tuna bg-transparent h-12 inline-flex hover:text-alabaster hover:bg-tuna disabled:border-eggshell disabled:text-eggshell disabled:bg-transparent`}>
-            <span className="px-8 uppercase text-body2 font-body tracking-widest align-middle self-center">
-              Send Message
+            disabled={loading}
+            className={`w-[240px] mt-2 transition-colors text-tuna border solid border-tuna bg-transparent h-12 inline-flex disabled:cursor-not-allowed hover:text-alabaster hover:bg-tuna disabled:border-eggshell disabled:text-eggshell disabled:bg-transparent`}>
+            <span className="px-8 uppercase text-body2 font-body tracking-widest align-middle self-center text-center w-full">
+              {loading ? "Sending..." : "Send Message"}
             </span>
           </button>
         </form>
       )}
 
-      {!loading && success && (
-        <div className="h-full w-full font-header font-bold text-neutral-800 flex flex-col items-center justify-center gap-1 text-center">
-          {/* <Image src={successCheckMark} alt="Success" /> */}
-          <div className="text-h4 my-1">Message sent!</div>
-          <div className="text-h6">
-            Our team will contact you as soon as possible.
+      {success && (
+        <div className="h-full w-full text-neutral-800 flex flex-col items-center justify-center gap-1 text-center">
+          <div className="text-h4 my-1 font-bold font-heading">
+            Message sent!
           </div>
+          <div className="text-h6 font-body">
+            I will reach out back to you as soon as possible.
+          </div>
+          <button className="mt-4 link" onClick={resetForm}>
+            Back
+          </button>
         </div>
       )}
     </div>

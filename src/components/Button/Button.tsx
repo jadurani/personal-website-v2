@@ -42,7 +42,7 @@ const PrimaryButton = ({ label, disabled, handleClick }: ButtonProps) => {
     <button
       onClick={handleClick}
       disabled={disabled}
-      className={`group text-white transition-colors bg-elephant hover:bg-verdigris disabled:bg-eggshell h-12 inline-flex`}>
+      className={`group text-white transition-colors bg-elephant disabled:cursor-not-allowed hover:bg-verdigris disabled:bg-eggshell h-12 inline-flex`}>
       <span className="inline-flex bg-black/5 h-12 w-12 text-eggshell group-hover:text-eggshell group-disabled:text-eggshell">
         <Image
           src={iconPrimaryBtn}
@@ -71,7 +71,7 @@ const SecondaryButton = ({
     <button
       onClick={handleClick}
       disabled={disabled}
-      className={`transition-colors text-tuna border solid border-tuna bg-transparent h-12 inline-flex hover:text-alabaster hover:bg-tuna disabled:border-eggshell disabled:text-eggshell disabled:bg-transparent`}>
+      className={`transition-colors text-tuna border solid border-tuna bg-transparent h-12 inline-flex disabled:cursor-not-allowed hover:text-alabaster hover:bg-tuna disabled:border-eggshell disabled:text-eggshell disabled:bg-transparent`}>
       <span className="px-8 uppercase text-body2 font-body tracking-widest align-middle self-center">
         {label}
       </span>

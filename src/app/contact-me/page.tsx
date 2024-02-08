@@ -1,4 +1,4 @@
-// import ContactForm from "@components/ContactForm/ContactForm";
+import ContactForm from "@components/ContactForm/ContactForm";
 import { NavBar } from "@components/NavBar/NavBar";
 import { Metadata } from "next";
 import Image from "next/image";
@@ -14,7 +14,7 @@ export default function ContactMePage() {
       <NavBar activeRoute={"/contact-us"}></NavBar>
 
       <main className="max-w-6xl container mx-auto">
-        <section className="p-8 border-t-2 solid border-tuna/5 flex flex-col md:flex-row gap-4 md:gap-16">
+        <section className="h-full p-8 border-t-2 solid border-tuna/5 flex flex-col md:flex-row gap-4 md:gap-16">
           <h1 className="flex-grow md:w-2/5 text-h2 md:text-h1 font-heading font-bold">
             Get in Touch
           </h1>
@@ -66,15 +66,14 @@ export default function ContactMePage() {
             </div>
           </article>
         </section>
-
-        {/* <section className="p-8 border-t-2 solid border-tuna/5 flex flex-col md:flex-row gap-4 md:gap-16">
+        <section className="p-8 border-t-2 solid border-tuna/5 flex flex-col md:flex-row gap-4 md:gap-16">
           <h1 className="flex-grow md:w-2/5 text-h2 md:text-h1 font-heading font-bold">
             Contact Me
           </h1>
           <div className="text-tuna/60 md:w-3/5">
             <ContactForm />
           </div>
-        </section> */}
+        </section>
       </main>
     </>
   );
