@@ -55,7 +55,7 @@ const PrimaryButton = ({ label, disabled, handleClick }: ButtonProps) => {
           className="hidden group-hover:inline-block group-disabled:inline-block m-auto"
         />
       </span>
-      <span className="px-8 uppercase text-body2 font-body font-semibold tracking-widest align-middle self-center">
+      <span className="px-6 uppercase text-body2 font-body font-semibold tracking-widest align-middle self-center">
         {label}
       </span>
     </button>

@@ -30,10 +30,17 @@ export default function Home() {
             <h1 className="font-heading font-bold text-h2 py-8 leading-none md:text-h1">
               Hey, I&#39;m Rani and I love building beautiful websites
             </h1>
+
             <Button
-              label="About Me"
+              label="Resum&eacute;"
               isPrimary={true}
-              handleClick={() => scrolltoHash("about-me")}></Button>
+              handleClick={() =>
+                window.open(
+                  "/files/resume.pdf",
+                  "_blank",
+                  "noopener,noreferrer"
+                )
+              }></Button>
           </div>
         </div>
 
