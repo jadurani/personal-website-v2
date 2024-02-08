@@ -4,8 +4,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "FE Mentor - Minimalist Portfolio Website",
-  description: "Implemented by Jadurani Davalos",
+  title: "Jadurani Davalos | Software Engineer",
 };
 
 export default function RootLayout({
