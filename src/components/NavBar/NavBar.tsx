@@ -3,7 +3,6 @@
 import menuCloseIcon from "@assets/icons/icon-close-menu.svg";
 import menuIcon from "@assets/icons/icon-menu.svg";
 
-import logoImg from "@assets/website-logo.svg";
 import { NAV_LINKS } from "@lib/nav-links";
 import Image from "next/image";
 import Link from "next/link";
@@ -44,8 +43,10 @@ export const NavBar = ({ activeRoute }: NavBarProps) => {
           isTransparent ? "bg-white/0" : "bg-white"
         } transition-colors duration-300 ease-in-out`}>
         <nav className="container max-w-6xl mx-auto p-8 lg:py-6 flex justify-between items-center lg:items-start">
-          <Link href="/" className="border-0">
-            <Image src={logoImg} alt="website logo" />
+          <Link
+            href="/"
+            className="border-0 font-heading font-bold text-h3 text-tuna -mt-1">
+            <div className="">jadurani</div>
           </Link>
 
           <div>
@@ -53,7 +54,7 @@ export const NavBar = ({ activeRoute }: NavBarProps) => {
               <Image src={menuIcon} alt="open menu icon" />
             </button>
 
-            <ul className="py-4 hidden md:flex md:gap-8 justify-stretch items-end">
+            <ul className="py-4 hidden md:flex md:gap-8 justify-stretch items-center">
               {NAV_LINKS.map((navLink, idx) => (
                 <li key={idx}>
                   <Link
@@ -70,11 +71,10 @@ export const NavBar = ({ activeRoute }: NavBarProps) => {
         <div
           className={`${isMenuOpen ? "right-0" : "-right-[120%]"} transition-[right] top-0 fixed bg-eggshell w-screen h-screen duration-700 ease-in-out overflow-hidden z-50`}>
           <div className="h-full flex flex-col justify-between">
-            <div className="flex justify-between">
-              <Link href="/" className="p-8 border-0">
-                <Image src={logoImg} alt="website logo" />
-              </Link>
-              <button className="p-8" onClick={() => setIsMenuOpen(false)}>
+            <div className="flex w-full mt-2">
+              <button
+                className="ml-auto p-8"
+                onClick={() => setIsMenuOpen(false)}>
                 <Image src={menuCloseIcon} alt="close menu icon" />
               </button>
             </div>
@@ -94,8 +94,39 @@ export const NavBar = ({ activeRoute }: NavBarProps) => {
               ))}
             </ul>
 
-            <div className="text-body2 text-center text-tuna my-2">
-              Implemented by Jadurani Davalos ♥️
+            <div className="flex justify-center items-center gap-4 py-8">
+              <Link
+                href={"https://github.com/jadurani"}
+                target="_blank"
+                aria-label="Visit my Github profile">
+                <Image
+                  alt="github"
+                  src={"/icons/github.svg"}
+                  width={24}
+                  height={24}></Image>
+              </Link>
+
+              <Link
+                href={"https://twitter.com/jadurani"}
+                target="_blank"
+                aria-label="Visit my Twitter profile">
+                <Image
+                  alt="twitter"
+                  src={"/icons/twitter.svg"}
+                  width={24}
+                  height={24}></Image>
+              </Link>
+
+              <Link
+                href={"https://www.linkedin.com/in/jadurani/"}
+                target="_blank"
+                aria-label="Visit my LinkedIn profile">
+                <Image
+                  alt="linked in"
+                  src={"/icons/linkedin.svg"}
+                  width={24}
+                  height={24}></Image>
+              </Link>
             </div>
           </div>
         </div>

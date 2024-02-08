@@ -7,17 +7,13 @@ const Footer = () => (
     <div className="container max-w-6xl mx-auto p-8 flex flex-col md:flex-row items-center justify-between">
       <nav className="flex flex-col md:flex-row items-center">
         {/* Logo */}
-        <Link href="/" className="border-0">
-          <svg xmlns="http://www.w3.org/2000/svg" width="61" height="32">
-            <path
-              fill="#FFFFFF"
-              fillRule="evenodd"
-              d="M60.082 5.878L44.408 32 28.735 5.878h31.347zM15.673 0l15.674 26.122H0L15.673 0z"
-            />
-          </svg>
+        <Link
+          href="/"
+          className="border-0 font-heading font-bold text-white text-h3 -mt-1">
+          <div className="">jadurani</div>
         </Link>
 
-        <ul className="md:ml-8 flex items-center flex-col md:flex-row gap-4 mt-5 md:mt-auto">
+        <ul className="md:ml-16 flex items-center flex-col md:flex-row gap-4 mt-5 md:mt-auto">
           {NAV_LINKS.map((navLink, idx) => (
             <li key={idx} className="p-4 text-center ">
               <Link
