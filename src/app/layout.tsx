@@ -1,5 +1,6 @@
 import Footer from "@components/Footer/Footer";
 import { FontBody, FontHeading } from "@lib/fonts";
+import GoogleCaptchaWrapper from "@providers/GoogleReCaptcha";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -15,8 +16,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${FontHeading.variable} ${FontBody.variable}`}>
-        {children}
-        <Footer />
+        <GoogleCaptchaWrapper>
+          {children}
+          <Footer />
+        </GoogleCaptchaWrapper>
       </body>
     </html>
   );

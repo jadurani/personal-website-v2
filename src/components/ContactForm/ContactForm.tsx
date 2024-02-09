@@ -2,10 +2,11 @@
 
 import EmailInput from "@components/EmailInput/EmailInput";
 import FullNameInput from "@components/FullNameInput/FullNameInput";
-import React, { useState } from "react";
-
 import MessageTextarea from "@components/MessageTextarea/MessageTextarea";
-import { saveToSpreadsheet } from "@lib/actions";
+import { saveToSpreadsheet } from "@lib/actions/save-inquiry";
+import { verifyCaptchaAction } from "@lib/actions/verify-captcha";
+import React, { useState } from "react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 export type ContactFormData = {
   fullName: string;
@@ -24,6 +25,8 @@ const ContactForm: React.FC = () => {
   const [success, setSuccess] = useState(false);
   const [formData, setFormData] = useState<ContactFormData>(initialFormState);
 
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
   const resetForm = () => {
     setLoading(false);
     setSuccess(false);
@@ -32,7 +35,21 @@ const ContactForm: React.FC = () => {
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    // if the component is not mounted yet
+    if (!executeRecaptcha) {
+      return;
+    }
+
     setLoading(true);
+
+    // receive a token
+    const token = await executeRecaptcha("onSubmit");
+    const verified = await verifyCaptchaAction(token);
+
+    if (!verified) {
+      setSuccess(false);
+      setLoading(false);
+    }
 
     // Check if any of the form fields are empty or null
     const { fullName, email, message } = formData;

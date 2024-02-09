@@ -23,6 +23,7 @@
       "@api/*": ["./src/app/api"],
       "@tests/*": ["./src/tests/*"],
       "@components/*": ["./src/components/*"],
+      "@providers/*": ["./src/providers/*"],
       "@lib/*": ["./src/lib/*"],
       "@styles/*": ["./src/styles/*"],
     },

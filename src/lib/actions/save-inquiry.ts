@@ -8,7 +8,7 @@ const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
 const SHEET_ID = Number(process.env.NEXT_PUBLIC_SHEET_ID);
 const GOOGLE_CLIENT_EMAIL = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL;
 const GOOGLE_SERVICE_PRIVATE_KEY =
-  (process.env.NEXT_GOOGLE_SERVICE_PRIVATE_KEY as string).replace(/\\n/g, '\n');
+  (process.env.GOOGLE_SERVICE_PRIVATE_KEY as string).replace(/\\n/g, '\n');
 
 const serviceAccountAuth = new JWT({
   email: GOOGLE_CLIENT_EMAIL,
