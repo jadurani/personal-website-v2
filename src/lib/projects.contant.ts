@@ -1,80 +1,38 @@
 
-type ProjectPreview = {
+export type ProjectPreview = {
   title: string;
   description: string;
-  link: string;
-  techStack: string[];
-  staticPhotos: {
-    thumbnail: string;
-    hero: string;
-    preview1: string;
-    preview2: string;
-  }
+  thumbnailSrc: string;
+  path: string;
 };
 
 export const PROJECTS: ProjectPreview[] = [
   {
-    title: "Manage",
+    title: "NOAH, Revamped!",
     description:
-      "This project required me to build a fully responsive landing page to the designs provided. I used HTML5, along with CSS Grid and JavaScript for the areas that required interactivity, such as the testimonial slider.",
-    link: "manage",
-    techStack: [
-      "Interaction Design / Front End Development",
-      "HTML / CSS / JS"
-    ],
-    staticPhotos: {
-      thumbnail: "image-portfolio-manage.jpg",
-      hero: "/images/detail/desktop/image-manage-hero.jpg",
-      preview1: "/images/detail/desktop/image-manage-preview-1@2x.jpg",
-      preview2: "/images/detail/desktop/image-manage-preview-2@2x.jpg",
-    },
+      "This project required me to design the overall UI/UX and lead the development of the website revamp. My work was a balancing act between creating an interface that was usable for persons comfortable with complexity and those who are not, while at the same time ensuring the technical feasibility of my designs.",
+    thumbnailSrc: "/images/portfolio/noah-revamped/noah-revamped-thumbnail.png",
+    path: "noah-revamped",
   },
   {
-    title: "Bookmark",
+    title: "ReliefAgad",
     description:
-      "This project required me to build a fully responsive landing page to the designs provided. I used HTML5, along with CSS Grid and JavaScript for the areas that required interactivity, such as the features section.",
-    link: "bookmark",
-    techStack: [
-      "Interaction Design / Front End Development",
-      "HTML / CSS / JS"
-    ],
-    staticPhotos: {
-      thumbnail: "image-portfolio-bookmark.jpg",
-      hero: "/images/detail/desktop/image-bookmark-hero.jpg",
-      preview1: "/images/detail/desktop/image-bookmark-preview-1@2x.jpg",
-      preview2: "/images/detail/desktop/image-bookmark-preview-2@2x.jpg",
-    },
+      "Supporting DSWD's Social Amelioration Program to urgently give much needed-aid to 18 million Filipino families. In this project, I led the development of the self-registration app and built the LGU Registration interface.",
+    thumbnailSrc: "/images/portfolio/reliefagad/reliefagad-thumbnail.png",
+    path: "reliefagad",
   },
   {
-    title: "Insure",
+    title: "360degrees",
     description:
-      "This was a small project which mostly consisted of HTML and CSS. I built a fully-responsive landing page. The only JavaScript this project required was to enable the toggling of the mobile navigation.",
-    link: "insure",
-    techStack: [
-      "Interaction Design / Front End Development",
-      "HTML / CSS / JS"
-    ],
-    staticPhotos: {
-      thumbnail: "image-portfolio-insure.jpg",
-      hero: "/images/detail/desktop/image-insure-hero.jpg",
-      preview1: "/images/detail/desktop/image-insure-preview-1@2x.jpg",
-      preview2: "/images/detail/desktop/image-insure-preview-2@2x.jpg",
-    },
+      "For this project, I designed and built a fully responsive website for a construction company. Loosely designed via Figma , built with Next.js and Tailwind, and deployed via Vercel.",
+    thumbnailSrc: "/images/portfolio/360degrees/360degrees-thumbnail.png",
+    path: "360degrees",
   },
   {
-    title: "Fylo",
+    title: "Pomodoro App",
     description:
-      "This project was built in pure HTML and CSS. I had mobile and desktop designs to work to and built it so that it was fully-responsive. I took a mobile-first approach and used modern CSS like Flexbox and Grid for layout purposes.",
-    link: "fylo",
-    techStack: [
-      "Interaction Design / Front End Development",
-      "HTML / CSS / JS"
-    ],
-    staticPhotos: {
-      thumbnail: "image-portfolio-fylo.jpg",
-      hero: "/images/detail/desktop/image-fylo-hero.jpg",
-      preview1: "/images/detail/desktop/image-fylo-preview-1@2x.jpg",
-      preview2: "/images/detail/desktop/image-fylo-preview-2@2x.jpg",
-    },
+      "A front-end challenge from Frontend Mentor, this pomodoro app provided some tricky challenges, including building a circular progress bar and a range of customizations, like colors and fonts. Built with Next.js and Tailwind, and deployed via Vercel.",
+    thumbnailSrc: "/images/portfolio/fem-pomodoro/fem-pomodoro-thumbnail.png",
+    path: "fem-pomodoro",
   },
 ];

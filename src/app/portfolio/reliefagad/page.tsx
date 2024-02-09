@@ -1,5 +1,7 @@
 import ContactPrompt from "@components/ContactPrompt/ContactPrompt";
 import { NavBar } from "@components/NavBar/NavBar";
+import { ProjectNav } from "@components/ProjectNav/ProjectNav";
+import { findNextPrevProjects } from "@lib/find-page-nav";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,9 +10,12 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectPage() {
+  const path = "reliefagad";
+  const nextPrevProjects = findNextPrevProjects(path);
+
   return (
     <>
-      <NavBar activeRoute="/portfolio"></NavBar>
+      <NavBar></NavBar>
       <main className="max-w-6xl container mx-auto px-8">
         {/* hero */}
         <div>
@@ -220,7 +225,7 @@ export default function ProjectPage() {
             </article>
           </div>
         </div>
-
+        <ProjectNav {...nextPrevProjects} />
         <ContactPrompt />
       </main>
     </>

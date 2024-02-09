@@ -9,7 +9,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 interface NavBarProps {
-  activeRoute: string;
+  activeRoute?: string;
 }
 
 export const NavBar = ({ activeRoute }: NavBarProps) => {
