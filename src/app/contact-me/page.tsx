@@ -22,13 +22,13 @@ export default function ContactMePage() {
           <article className="text-tuna/60 md:w-3/5">
             <p className="leading-loose">
               I&#39;d love to hear about what you&#39;re working on and how I
-              could help. My preference would be to find a position in globally
-              remote working environment, but I&#39;m also happy to hear about
-              opportunites that don&#39;t fit that description. I&#39;m a
-              hard-working and positive person who will always approach each
-              task with a sense of purpose and attention to detail. Please do
-              feel free to check out my online profiles below and get in touch
-              using the form.
+              could help. My preference would be to find a position in a
+              globally remote working environment, but I&#39;m also happy to
+              hear about opportunites that don&#39;t fit that description.
+              I&#39;m a hard-working and positive person who will always
+              approach each task with a sense of purpose and attention to
+              detail. Please do feel free to check out my online profiles below
+              and get in touch using the form.
             </p>
             <div className="flex items-center gap-4 py-8">
               <Link
