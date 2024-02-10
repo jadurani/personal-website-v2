@@ -16,17 +16,17 @@ export default function Home() {
       <NavBar activeRoute={activeRoute}></NavBar>
 
       <main>
-        <div className="max-w-6xl px-8 container mx-auto mb-16 relative py-12">
+        <div className="max-w-6xl px-8 container mx-auto md:mb-16 lg:my-16 relative py-12">
           <div className="relative w-full max-w-4xl">
-            <h1 className="font-heading font-bold text-h3 sm:text-h2 md:text-h1 leading-tight">
+            <h1 className="font-heading font-bold text-h3 sm:text-h2 md:text-h1 mb-8 leading-tight">
               Hey, I&#39;m Rani — a software engineer with a passion for people
               and places.
             </h1>
-            <p className="text-tuna/60 my-4 leading-relaxed lg:leading-loose">
+            <p className="text-tuna/60 my-1 leading-relaxed lg:leading-loose">
               Turning coffee into code around the globe.
             </p>
 
-            <p className="text-tuna/60 my-4 leading-relaxed lg:leading-loose">
+            <p className="text-tuna/60 my-1 leading-relaxed lg:leading-loose">
               Currently in{" "}
               <a
                 href="https://maps.app.goo.gl/DxeCSMaJsuW6Dt6v8"
