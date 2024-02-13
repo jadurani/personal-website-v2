@@ -1,8 +1,10 @@
+import coverPhoto from "@assets/images/portfolio/fem-pomodoro/fem-pomodoro-app-page-cover.webp";
 import ContactPrompt from "@components/ContactPrompt/ContactPrompt";
 import { NavBar } from "@components/NavBar/NavBar";
 import { ProjectNav } from "@components/ProjectNav/ProjectNav";
 import { findNextPrevProjects } from "@lib/find-page-nav";
 import { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Frontend Mentor - Pomodoro App | Jadurani Davalos",
@@ -19,17 +21,11 @@ export default function ProjectPage() {
       <NavBar></NavBar>
       <main className="max-w-6xl container mx-auto px-8">
         {/* hero */}
-        <div>
-          <div className="relative w-full h-full mb-12">
-            <img
-              alt="project preview of the pomodoro app"
-              className="object-contain lg:object-cover w-full h-full"
-              src={
-                "/images/portfolio/fem-pomodoro/fem-pomodoro-app-page-cover.webp"
-              }
-            />
-          </div>
-        </div>
+        <Image
+          alt="project preview of the pomodoro app"
+          src={coverPhoto}
+          className="mb-12"
+        />
 
         <div className="flex flex-col lg:gap-16 lg:flex-row">
           {/* overview */}

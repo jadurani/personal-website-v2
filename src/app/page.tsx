@@ -54,7 +54,6 @@ export default function Home() {
         <div
           id="about-me"
           className="max-w-6xl px-8 container mx-auto flex flex-wrap md:flex-nowrap gap-4 md:gap-16 justify-center items-center mb-8">
-          {/* <div className="w-[320px] h-[320px] sm:w-full sm:h-[520px] relative"> */}
           <div className="flex-grow w-full relative self-stretch min-h-[320px]">
             <Image
               src={devImage}

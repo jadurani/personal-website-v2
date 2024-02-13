@@ -1,8 +1,10 @@
+import coverPhoto from "@assets/images/portfolio/360degrees/360degrees-page-cover.webp";
 import ContactPrompt from "@components/ContactPrompt/ContactPrompt";
 import { NavBar } from "@components/NavBar/NavBar";
 import { ProjectNav } from "@components/ProjectNav/ProjectNav";
 import { findNextPrevProjects } from "@lib/find-page-nav";
 import { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "360degrees systems corporation | Jadurani Davalos",
@@ -20,17 +22,9 @@ export default function ProjectPage() {
 
       <main className="max-w-6xl container mx-auto px-8">
         {/* hero */}
-        <div>
-          <div className="relative w-full h-full mb-12">
-            <img
-              alt="project preview for the Project NOAH, Revamped!"
-              className="object-contain lg:object-cover w-full h-full"
-              src={"/images/portfolio/360degrees/360degrees-page-cover.webp"}
-            />
-          </div>
-        </div>
+        <Image alt="project preview for 360degrees website" src={coverPhoto} />
 
-        <div className="flex flex-col lg:gap-16 lg:flex-row">
+        <div className="mt-12 flex flex-col lg:gap-16 lg:flex-row">
           {/* overview */}
           <section className="w-full lg:w-2/5 mx-auto">
             <div className="w-full flex flex-col md:flex-row justify-center py-8 border-t-2 border-b-2 solid border-tuna/5">

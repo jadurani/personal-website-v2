@@ -4,6 +4,7 @@ import { Button } from "@components/Button/Button";
 import ContactPrompt from "@components/ContactPrompt/ContactPrompt";
 import { NavBar } from "@components/NavBar/NavBar";
 import { PROJECTS } from "@lib/projects.contant";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 
 export default function PortfolioPage() {
@@ -19,12 +20,13 @@ export default function PortfolioPage() {
           <div
             key={idx}
             className={`${idx != 0 ? "mt-16" : ""} px-8 flex flex-col ${idx % 2 ? "md:flex-row-reverse" : "md:flex-row"} gap-4 md:gap-16 justify-center items-stretch`}>
-            <div className="flex-grow w-full relative self-stretch min-h-[320px] flex items-center">
-              <img
-                className="object-cover m-auto"
+            <div className="flex-grow w-full relative self-stretch flex items-center">
+              <Image
                 alt={`thumbnail preview for ${proj.title}`}
+                width={512}
+                height={512}
                 src={proj.thumbnailSrc}
-                sizes="(max-width: 320px) 280px, (max-width: 768px) 720px, 1200px"
+                className="object-cover m-auto"
               />
             </div>
 
