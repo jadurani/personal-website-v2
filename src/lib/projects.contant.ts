@@ -28,11 +28,4 @@ export const PROJECTS: ProjectPreview[] = [
     thumbnailSrc: "/images/portfolio/360degrees/360degrees-thumbnail.png",
     path: "360degrees",
   },
-  {
-    title: "Pomodoro App",
-    description:
-      "A front-end challenge from Frontend Mentor, this pomodoro app provided some tricky challenges, including building a circular progress bar and a range of customizations, like colors and fonts. Built with Next.js and Tailwind, and deployed via Vercel.",
-    thumbnailSrc: "/images/portfolio/fem-pomodoro/fem-pomodoro-thumbnail.png",
-    path: "fem-pomodoro",
-  },
 ];
