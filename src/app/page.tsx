@@ -29,9 +29,9 @@ export default function Home() {
             <p className="text-tuna/60 my-1 leading-relaxed lg:leading-loose">
               Currently in{" "}
               <a
-                href="https://maps.app.goo.gl/DxeCSMaJsuW6Dt6v8"
+                href="https://maps.app.goo.gl/qBh4UTPC6oPdTCUB6"
                 target="_blank">
-                New York, USA
+                Manila, Philippines
               </a>
               .
             </p>
