@@ -1,5 +1,5 @@
-import type { Preview } from "@storybook/react";
-import "tailwindcss/tailwind.css";
+import type { Preview } from "@storybook/nextjs";
+import "../src/app/globals.css";
 
 const BREAKPOINTS_INT = {
   xs: {
@@ -45,7 +45,6 @@ const customViewports = Object.fromEntries(
 
 const preview: Preview = {
   parameters: {
-    actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
       matchers: {
         color: /(background|color)$/i,

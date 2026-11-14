@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -10,24 +14,49 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
       {
-        "name": "next",
-      },
+        "name": "next"
+      }
     ],
     "paths": {
-      "@assets/*": ["./public/*"],
-      "@app/*": ["./src/app/*"],
-      "@api/*": ["./src/app/api"],
-      "@tests/*": ["./src/tests/*"],
-      "@components/*": ["./src/components/*"],
-      "@providers/*": ["./src/providers/*"],
-      "@lib/*": ["./src/lib/*"],
-      "@styles/*": ["./src/styles/*"],
+      "@assets/*": [
+        "./public/*"
+      ],
+      "@app/*": [
+        "./src/app/*"
+      ],
+      "@api/*": [
+        "./src/app/api"
+      ],
+      "@tests/*": [
+        "./src/tests/*"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@providers/*": [
+        "./src/providers/*"
+      ],
+      "@lib/*": [
+        "./src/lib/*"
+      ],
+      "@styles/*": [
+        "./src/styles/*"
+      ]
     },
+    "target": "ES2017"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

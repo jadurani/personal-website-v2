@@ -1,5 +1,5 @@
 import { NAV_LINKS } from "@lib/nav-links";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import { NavBar } from "./NavBar";
 
 const meta = {
@@ -17,7 +17,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story | any = {
+export const Default: Story = {
   args: {
     activeRoute: "/",
   },

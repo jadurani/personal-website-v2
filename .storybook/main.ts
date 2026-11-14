@@ -1,26 +1,24 @@
 import type { StorybookConfig } from "@storybook/nextjs";
 
-const path = require("path");
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import webpack from "webpack";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   staticDirs: ['../public'],
   addons: [
     "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-onboarding",
-    "@storybook/addon-interactions",
+    "@storybook/addon-docs",
   ],
   framework: {
     name: "@storybook/nextjs",
     options: {},
   },
-  docs: {
-    autodocs: "tag",
-  },
   webpackFinal: async (config) => {
-    // @ts-ignore: Object is possibly 'null'.
+    config.resolve ??= {};
     config.resolve.alias = {
-      // @ts-ignore: Object is possibly 'null'.
       ...config.resolve.alias,
       "@assets": path.resolve(__dirname, "../public/"),
       "@app": path.resolve(__dirname, "../src/app/"),
@@ -30,6 +28,14 @@ const config: StorybookConfig = {
       "@lib": path.resolve(__dirname, "../src/lib/"),
       "@styles": path.resolve(__dirname, "../src/styles/"),
     };
+    // Server actions pull Node-only packages; swap them for browser-safe mocks.
+    config.plugins ??= [];
+    config.plugins.push(
+      new webpack.NormalModuleReplacementPlugin(
+        /lib\/actions\/(save-inquiry|verify-captcha)$/,
+        path.resolve(__dirname, "./mocks/actions.ts")
+      )
+    );
     return config;
   },
 };
