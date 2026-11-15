@@ -5,15 +5,14 @@ import ContactPrompt from "@components/ContactPrompt/ContactPrompt";
 import { NavBar } from "@components/NavBar/NavBar";
 import { PROJECTS } from "@lib/projects.contant";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function PortfolioPage() {
-  const activeRoute = usePathname();
   const router = useRouter();
 
   return (
     <>
-      <NavBar activeRoute={activeRoute}></NavBar>
+      <NavBar></NavBar>
 
       <main className="max-w-6xl container mx-auto">
         {PROJECTS.map((proj, idx) => (

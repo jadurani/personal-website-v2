@@ -7,8 +7,9 @@ export default function GoogleCaptchaWrapper({
 }: {
   children: React.ReactNode;
 }) {
+  // Must be a plain `process.env.NEXT_PUBLIC_*` access so Next can inline it
   const recaptchaKey: string | undefined =
-    process?.env?.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+    process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
   return (
     <GoogleReCaptchaProvider
       reCaptchaKey={recaptchaKey ?? "NOT DEFINED"}

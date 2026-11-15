@@ -49,6 +49,7 @@ const ContactForm: React.FC = () => {
     if (!verified) {
       setSuccess(false);
       setLoading(false);
+      return;
     }
 
     // Check if any of the form fields are empty or null

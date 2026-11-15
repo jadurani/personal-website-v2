@@ -1,6 +1,53 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  /* Replace the default type scale with the site's own */
+  --text-*: initial;
+  --text-body2: 0.8rem;
+  --text-body1: 1rem;
+  --text-h6: 1rem;
+  --text-h5: 1.25rem;
+  --text-h4: 1.563rem;
+  --text-h3: 1.953rem;
+  --text-h2: 2.441rem;
+  --text-h1: 3.052rem;
+
+  --breakpoint-xs: 320px;
+
+  --color-verdigris: #5fb4a2; /* cyan */
+  --color-verdigris-shadow: #1e7965;
+  --color-elephant: #203a4c; /* dark blue */
+  --color-tuna: #33323d; /* greyish dark blue */
+  --color-alabaster: #fafafa; /* BG */
+  --color-eggshell: #eaeaeb; /* text field */
+  --color-error: #f43030;
+}
+
+@theme inline {
+  --font-heading: var(--font-ibarra), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-public-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Restore the Tailwind 3 defaults that v4 changed */
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--color-gray-400);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
 
 body {
   /* Default font size for smaller screens */
@@ -8,6 +55,10 @@ body {
   @apply font-body text-tuna bg-alabaster;
 }
 
-a, .link {
-  @apply text-verdigris cursor-pointer border-b border-solid border-b-elephant/0 hover:border-b-verdigris transition-colors;
+/* In a layer so utilities (text-tuna, border-0, hover:text-*) can override it */
+@layer components {
+  a,
+  .link {
+    @apply text-verdigris cursor-pointer border-b border-solid border-b-elephant/0 hover:border-b-verdigris transition-colors;
+  }
 }

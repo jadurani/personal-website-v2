@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import Footer from "./Footer";
 
 const meta = {
@@ -10,4 +10,4 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story | any = {};
+export const Default: Story = {};
