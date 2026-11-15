@@ -5,15 +5,14 @@ import { Button } from "@components/Button/Button";
 import ContactPrompt from "@components/ContactPrompt/ContactPrompt";
 import { NavBar } from "@components/NavBar/NavBar";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
-  const activeRoute = usePathname();
   const router = useRouter();
 
   return (
     <>
-      <NavBar activeRoute={activeRoute}></NavBar>
+      <NavBar></NavBar>
 
       <main>
         <div className="max-w-6xl px-8 container mx-auto md:mb-16 lg:my-16 relative py-12">

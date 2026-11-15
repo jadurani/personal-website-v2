@@ -3,16 +3,24 @@
 import menuCloseIcon from "@assets/icons/icon-close-menu.svg";
 import menuIcon from "@assets/icons/icon-menu.svg";
 
+import { SocialLinks } from "@components/SocialLinks/SocialLinks";
 import { NAV_LINKS } from "@lib/nav-links";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 interface NavBarProps {
   activeRoute?: string;
 }
 
-export const NavBar = ({ activeRoute }: NavBarProps) => {
+export const NavBar = ({ activeRoute: activeRouteProp }: NavBarProps) => {
+  const pathname = usePathname();
+  const currentPath = activeRouteProp ?? pathname;
+  // "/portfolio/foo" keeps "Portfolio" active; "/" only matches exactly
+  const isActive = (path: string) =>
+    path === "/" ? currentPath === "/" : currentPath?.startsWith(path);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isTransparent, setIsTransparent] = useState(true);
 
@@ -59,7 +67,7 @@ export const NavBar = ({ activeRoute }: NavBarProps) => {
                 <li key={idx}>
                   <Link
                     href={navLink.path}
-                    className={`text-body2 border-0 uppercase tracking-widest hover:text-verdigris transition-colors ${activeRoute == navLink.path ? "text-verdigris" : "text-tuna"}`}>
+                    className={`text-body2 border-0 uppercase tracking-widest hover:text-verdigris transition-colors ${isActive(navLink.path) ? "text-verdigris" : "text-tuna"}`}>
                     {navLink.label}
                   </Link>
                 </li>
@@ -87,47 +95,14 @@ export const NavBar = ({ activeRoute }: NavBarProps) => {
                   className="w-full py-4 text-center">
                   <Link
                     href={navLink.path}
-                    className={`block text-body2 border-0 uppercase tracking-widest hover:text-verdigris transition-colors ${activeRoute == navLink.path ? "text-verdigris" : "text-tuna"}`}>
+                    className={`block text-body2 border-0 uppercase tracking-widest hover:text-verdigris transition-colors ${isActive(navLink.path) ? "text-verdigris" : "text-tuna"}`}>
                     {navLink.label}
                   </Link>
                 </li>
               ))}
             </ul>
 
-            <div className="flex justify-center items-center gap-4 py-8">
-              <Link
-                href={"https://github.com/jadurani"}
-                target="_blank"
-                aria-label="Visit my Github profile">
-                <Image
-                  alt="github"
-                  src={"/icons/github.svg"}
-                  width={24}
-                  height={24}></Image>
-              </Link>
-
-              <Link
-                href={"https://twitter.com/jadurani"}
-                target="_blank"
-                aria-label="Visit my Twitter profile">
-                <Image
-                  alt="twitter"
-                  src={"/icons/twitter.svg"}
-                  width={24}
-                  height={24}></Image>
-              </Link>
-
-              <Link
-                href={"https://www.linkedin.com/in/jadurani/"}
-                target="_blank"
-                aria-label="Visit my LinkedIn profile">
-                <Image
-                  alt="linked in"
-                  src={"/icons/linkedin.svg"}
-                  width={24}
-                  height={24}></Image>
-              </Link>
-            </div>
+            <SocialLinks className="justify-center py-8" />
           </div>
         </div>
       </header>

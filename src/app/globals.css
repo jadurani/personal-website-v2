@@ -28,12 +28,37 @@
   --font-body: var(--font-public-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
+/* Restore the Tailwind 3 defaults that v4 changed */
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--color-gray-400);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
 body {
   /* Default font size for smaller screens */
   font-size: 16px;
   @apply font-body text-tuna bg-alabaster;
 }
 
-a, .link {
-  @apply text-verdigris cursor-pointer border-b border-solid border-b-elephant/0 hover:border-b-verdigris transition-colors;
+/* In a layer so utilities (text-tuna, border-0, hover:text-*) can override it */
+@layer components {
+  a,
+  .link {
+    @apply text-verdigris cursor-pointer border-b border-solid border-b-elephant/0 hover:border-b-verdigris transition-colors;
+  }
 }
