@@ -16,7 +16,7 @@ export const PROJECTS: ProjectPreview[] = [
     title: "Kalinga",
     description:
       "Find PhilHealth-accredited facilities near you. 14,143 facilities from 26 PDF directories, searchable by need and location on a map that works on a phone. An independent project, built with an AI coding agent.",
-    thumbnailSrc: "/images/portfolio/kalinga/kalinga-thumbnail.png",
+    thumbnailSrc: "/images/portfolio/kalinga/kalinga-thumbnail-mobile.png",
     path: "kalinga",
     tags: ["Agentic", "Maps", "Open Data", "Health"],
     status: "ALPHA",
