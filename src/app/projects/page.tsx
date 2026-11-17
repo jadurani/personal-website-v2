@@ -37,9 +37,13 @@ export default function ProjectsPage() {
                 {proj.title}
               </h2>
 
-              <p className="text-tuna/60 py-4 leading-loose">
+              <p className="text-tuna/60 pt-4 pb-3 leading-loose">
                 {proj.description}
               </p>
+
+              <div className="pb-6">
+                <TagPills tags={proj.tags} />
+              </div>
 
               <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
                 <Button
@@ -54,9 +58,6 @@ export default function ProjectsPage() {
                 )}
               </div>
 
-              <div className="pt-6">
-                <TagPills tags={proj.tags} />
-              </div>
             </div>
           </div>
         ))}

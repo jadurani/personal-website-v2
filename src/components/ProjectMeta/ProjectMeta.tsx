@@ -15,7 +15,7 @@ export const StatusBadge = ({ status }: { status: ProjectStatus }) => (
 );
 
 export const TagPills = ({ tags }: { tags: string[] }) => (
-  <p className="font-bold text-verdigris leading-relaxed" aria-label="Tags">
+  <p className="font-bold text-body2 text-verdigris leading-relaxed" aria-label="Tags">
     {tags.join(", ")}
   </p>
 );
