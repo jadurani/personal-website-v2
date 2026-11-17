@@ -58,15 +58,15 @@ export default function ProjectPage() {
   const overviewCopy = (
     <>
       <p className="py-2 text-tuna">
-        14,143 PhilHealth-accredited facilities across 17 regions, searchable by
-        what you need and where you are, nearest first.
+        Roughly 14,000 PhilHealth-accredited facilities across 17 regions,
+        searchable by what you need and where you are, nearest first.
       </p>
       <p className="py-2">
-        I parsed PhilHealth&#39;s accredited-facility lists by category and
-        geotagged every facility, so you can search by what you need and where
-        you are, even on a phone and a slow connection. Say where you are and
-        what you need, and the closest matching facilities come first. It is an
-        independent project and is not affiliated with PhilHealth.
+        Parsed PhilHealth&#39;s accredited-facility lists from various PDF files
+        and geotagged the facilities, some to the street and some only to the
+        town, so you can search by what you need and where you are, even on a
+        phone and a slow connection. The closest matching facilities come first.
+        It is an independent project and is not affiliated with PhilHealth.
       </p>
     </>
   );
