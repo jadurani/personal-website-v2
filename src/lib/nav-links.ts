@@ -9,8 +9,8 @@ export const NAV_LINKS: NavLink[] = [
     path: "/",
   },
   {
-    label: "Portfolio",
-    path: "/portfolio",
+    label: "Projects",
+    path: "/projects",
   },
   {
     label: "Contact Me",

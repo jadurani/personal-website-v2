@@ -3,11 +3,12 @@
 import { Button } from "@components/Button/Button";
 import ContactPrompt from "@components/ContactPrompt/ContactPrompt";
 import { NavBar } from "@components/NavBar/NavBar";
-import { PROJECTS } from "@lib/projects.contant";
+import { TagPills } from "@components/ProjectMeta/ProjectMeta";
+import { formatLaunched, PROJECTS } from "@lib/projects.contant";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-export default function PortfolioPage() {
+export default function ProjectsPage() {
   const router = useRouter();
 
   return (
@@ -15,6 +16,8 @@ export default function PortfolioPage() {
       <NavBar></NavBar>
 
       <main className="max-w-6xl container mx-auto">
+        <h1 className="sr-only">Projects</h1>
+
         {PROJECTS.map((proj, idx) => (
           <div
             key={idx}
@@ -30,21 +33,31 @@ export default function PortfolioPage() {
             </div>
 
             <div className="w-full self-stretch flex-grow flex flex-col justify-center py-8 border-t-2 border-b-2 solid border-tuna/5">
-              <div className="font-heading font-bold text-h2 md:text-h1 leading-tight">
+              <h2 className="font-heading font-bold text-h2 md:text-h1 leading-tight">
                 {proj.title}
-              </div>
+              </h2>
 
-              <p className="text-tuna/60 py-4 leading-loose">
+              <p className="text-tuna/60 pt-4 pb-3 leading-loose">
                 {proj.description}
               </p>
 
-              <div>
+              <div className="pb-6">
+                <TagPills tags={proj.tags} />
+              </div>
+
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
                 <Button
                   label="View Project"
                   handleClick={() =>
-                    router.push(`/portfolio/${proj.path}`)
+                    router.push(`/projects/${proj.path}`)
                   }></Button>
+                {formatLaunched(proj.launched) && (
+                  <span className="text-body2 text-tuna/60">
+                    Launched {formatLaunched(proj.launched)}
+                  </span>
+                )}
               </div>
+
             </div>
           </div>
         ))}

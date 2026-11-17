@@ -2,7 +2,9 @@ import coverPhoto from "@assets/images/portfolio/reliefagad/reliefagad-page-cove
 import ContactPrompt from "@components/ContactPrompt/ContactPrompt";
 import { NavBar } from "@components/NavBar/NavBar";
 import { ProjectNav } from "@components/ProjectNav/ProjectNav";
+import { ProjectMeta } from "@components/ProjectMeta/ProjectMeta";
 import { findNextPrevProjects } from "@lib/find-page-nav";
+import { PROJECTS } from "@lib/projects.contant";
 import { Metadata } from "next";
 import Image from "next/image";
 
@@ -14,6 +16,7 @@ export const metadata: Metadata = {
 export default function ProjectPage() {
   const path = "reliefagad";
   const nextPrevProjects = findNextPrevProjects(path);
+  const project = PROJECTS.find((p) => p.path === path)!;
 
   return (
     <>
@@ -31,11 +34,24 @@ export default function ProjectPage() {
                   ReliefAgad
                 </h1>
 
+                <div className="pt-4">
+                  <ProjectMeta
+                    tags={project.tags}
+                    status={project.status}
+                    launched={project.launched}
+                  />
+                </div>
+
                 <div className="text-tuna/60 py-4 md:hidden lg:block leading-relaxed">
+                  <p className="py-2 text-tuna">
+                    Over 4.3 million beneficiaries registered through
+                    ReliefAgad as of July 2020, with more than 1 million
+                    enrolling to receive aid directly in their e-wallets or
+                    bank accounts.
+                  </p>
                   <p className="py-2">
-                    In this project, I led the development of the
-                    self-registration app and built the LGU Registration
-                    interface.
+                    I led the development of the self-registration app and
+                    built the LGU registration interface.
                   </p>
 
                   <p className="py-2">
@@ -53,28 +69,35 @@ export default function ProjectPage() {
                     The most challenging aspect of this project for me was the
                     complex interdependencies of the fields in this multi-page
                     dynamic form and I think{" "}
-                    <a href="https://material.angular.io/" target="_blank">
+                    <a
+                      href="https://angular.dev/guide/forms/reactive-forms"
+                      target="_blank">
                       Angular&#39;s Reactive Forms
                     </a>{" "}
-                    was an amazing tool in handling these complexities.
+                    were an amazing tool for handling them.
                   </p>
                 </div>
 
                 <div className="mt-4 text-body2 text-tuna/60">
-                  (Link to live project is no longer available.)
+                  (The live project is no longer available.)
                 </div>
               </div>
 
               <div className="text-tuna/60 py-4 hidden md:block w-full lg:hidden lg:mr-16">
-                <p className="py-2">
-                  This project required me to design the overall UI/UX and lead
-                  the development of the website revamp.
+                <p className="py-2 text-tuna">
+                  Over 4.3 million beneficiaries registered through ReliefAgad
+                  as of July 2020, with more than 1 million enrolling to
+                  receive aid directly in their e-wallets or bank accounts.
                 </p>
                 <p className="py-2">
-                  My work was a balancing act between creating an interface that
-                  was usable for persons comfortable with complexity and those
-                  who are not, while at the same time ensuring the technical
-                  feasibility of my designs.
+                  I led the development of the self-registration app and built
+                  the LGU registration interface.
+                </p>
+                <p className="py-2">
+                  We used Angular and Angular Material for the frontend. The
+                  most challenging part was the complex interdependencies of
+                  the fields in the multi-page dynamic form, which
+                  Angular&#39;s Reactive Forms handled well.
                 </p>
               </div>
             </div>
@@ -112,22 +135,21 @@ export default function ProjectPage() {
 
               <div className="text-tuna/60">
                 <p className="py-2.5 text-justify">
-                  Millions of Filipinos lost their income due to the pandemic
-                  lock downs. The Philippine government issued an order to
-                  provide cash assistance to the indigent and families must
-                  register themselves as in-need of cash assistance by manually
-                  writing out a form given by DSWD. Once registered,
-                  benificiaries had to manually come in person to the designated
-                  disbursement areas and claim the aide in cash, which is not
-                  the best form of currency during the pandemic.
+                  Millions of Filipinos lost their income during the pandemic
+                  lockdowns. The Philippine government ordered cash assistance
+                  for the indigent, and families had to register as in need of
+                  aid by manually filling out a form from DSWD. Once
+                  registered, beneficiaries had to go in person to a designated
+                  disbursement area to claim the aid in cash, which is far from
+                  ideal during a pandemic.
                 </p>
 
                 <p className="py-2.5 text-justify">
-                  To aide with the distribution of emergency funds, DEVCON, in
+                  To help with the distribution of emergency funds, DEVCON, in
                   partnership with USAID and the Department of Social Welfare
                   and Development (DSWD), created ReliefAgad. This app
-                  streamlines the capture of SAC data and the dispersal of
-                  relief funds by using an e-wallet or bank account that enables
+                  streamlines the capture of SAC data and the disbursement
+                  of relief funds by using an e-wallet or bank account that enables
                   DSWD to send aid directly to beneficiaries, using the
                   e-payment systems of the regional banking industry.
                 </p>
@@ -140,10 +162,10 @@ export default function ProjectPage() {
                   beneficiaries.
                 </p>
                 <p className="py-2.5 text-justify">
-                  As of July 2020, over 4.3 million benificiaries have
-                  registered through ReliefAgad, of which, over 1 million have
-                  entrolled transaction grants directly to their e-wallets or
-                  bank accounts
+                  As of July 2020, over 4.3 million beneficiaries had
+                  registered through ReliefAgad, and over 1 million of them had
+                  enrolled to receive grants directly in their e-wallets or
+                  bank accounts.
                 </p>
 
                 <div className="mx-auto my-4 w-[250px] h-[140px] sm:w-[560px] sm:h-[315px]">
@@ -201,18 +223,22 @@ export default function ProjectPage() {
       ">
                 <img
                   className="sm:justify-self-end"
+                  alt="ReliefAgad app screenshot 1 of 4"
                   src="/images/portfolio/reliefagad/ra-preview-1.png"
                 />
                 <img
                   className="sm:justify-self-start"
+                  alt="ReliefAgad app screenshot 2 of 4"
                   src="/images/portfolio/reliefagad/ra-preview-2.png"
                 />
                 <img
                   className="sm:justify-self-end"
+                  alt="ReliefAgad app screenshot 3 of 4"
                   src="/images/portfolio/reliefagad/ra-preview-3.png"
                 />
                 <img
                   className="sm:justify-self-start"
+                  alt="ReliefAgad app screenshot 4 of 4"
                   src="/images/portfolio/reliefagad/ra-preview-4.png"
                 />
               </div>
