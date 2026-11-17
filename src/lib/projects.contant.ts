@@ -20,6 +20,7 @@ export const PROJECTS: ProjectPreview[] = [
     path: "noah-revamped",
     tags: ["UI/UX", "Web GIS", "Frontend Lead", "Disaster Risk"],
     status: "LIVE",
+    launched: "2021-10",
   },
   {
     title: "ReliefAgad",
@@ -29,6 +30,7 @@ export const PROJECTS: ProjectPreview[] = [
     path: "reliefagad",
     tags: ["Angular", "GovTech", "Frontend Lead", "Forms"],
     status: "RETIRED",
+    launched: "2020-05",
   },
   {
     title: "360degrees",
@@ -38,6 +40,7 @@ export const PROJECTS: ProjectPreview[] = [
     path: "360degrees",
     tags: ["Next.js", "Tailwind", "Design + Dev", "Freelance"],
     status: "LIVE",
+    launched: "2023-11",
   },
 ];
 
