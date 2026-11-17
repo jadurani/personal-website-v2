@@ -13,15 +13,6 @@ export type ProjectPreview = {
 
 export const PROJECTS: ProjectPreview[] = [
   {
-    title: "Kalinga",
-    description:
-      "Find PhilHealth-accredited facilities near you. 14,143 facilities from 26 PDF directories, searchable by need and location on a map that works on a phone. An independent project, built with an AI coding agent.",
-    thumbnailSrc: "/images/portfolio/kalinga/kalinga-thumbnail-mobile.png",
-    path: "kalinga",
-    tags: ["Agentic", "Maps", "Open Data", "Health"],
-    status: "ALPHA",
-  },
-  {
     title: "NOAH, Revamped!",
     description:
       "This project required me to design the overall UI/UX and lead the development of the website revamp. My work was a balancing act between creating an interface that was usable for persons comfortable with complexity and those who are not, while at the same time ensuring the technical feasibility of my designs.",
@@ -30,6 +21,15 @@ export const PROJECTS: ProjectPreview[] = [
     tags: ["UI/UX", "Web GIS", "Frontend Lead", "Disaster Risk"],
     status: "LIVE",
     launched: "2021-10",
+  },
+  {
+    title: "Kalinga",
+    description:
+      "Find PhilHealth-accredited facilities near you. 14,143 facilities from 26 PDF directories, searchable by need and location on a map that works on a phone. An independent project, built with an AI coding agent.",
+    thumbnailSrc: "/images/portfolio/kalinga/kalinga-thumbnail-mobile.png",
+    path: "kalinga",
+    tags: ["Agentic", "Maps", "Open Data", "Health"],
+    status: "ALPHA",
   },
   {
     title: "ReliefAgad",
