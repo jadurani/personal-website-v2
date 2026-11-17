@@ -13,7 +13,7 @@ const IMG = "/images/portfolio/kalinga";
 export const metadata: Metadata = {
   title: "Kalinga | Jadurani Davalos",
   description:
-    "A map for finding PhilHealth-accredited facilities near you, built from 26 PDF directories. Independent project, built with an AI coding agent.",
+    "Find PhilHealth-accredited facilities near you: parsed by category and geotagged so they can be searched by need and location. Independent project, built with an AI coding agent.",
 };
 
 const DESKTOP_SHOTS = [
@@ -62,11 +62,11 @@ export default function ProjectPage() {
         what you need and where you are, nearest first.
       </p>
       <p className="py-2">
-        PhilHealth publishes its accredited facilities only as PDF directories.
-        Kalinga turns them into a map that works on a phone and on a slow
-        connection. Say where you are and what you need, and the closest
-        matching facilities come first. It is an independent project and is not
-        affiliated with PhilHealth.
+        I parsed PhilHealth&#39;s accredited-facility lists by category and
+        geotagged every facility, so you can search by what you need and where
+        you are, even on a phone and a slow connection. Say where you are and
+        what you need, and the closest matching facilities come first. It is an
+        independent project and is not affiliated with PhilHealth.
       </p>
     </>
   );
