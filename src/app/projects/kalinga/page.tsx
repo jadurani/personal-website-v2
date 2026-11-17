@@ -13,7 +13,7 @@ const IMG = "/images/portfolio/kalinga";
 export const metadata: Metadata = {
   title: "Kalinga | Jadurani Davalos",
   description:
-    "A map for finding PhilHealth-accredited facilities near you, built from 26 PDF directories. Independent project, built with an AI coding agent.",
+    "Find PhilHealth-accredited facilities near you: parsed by category and geotagged so they can be searched by need and location. Independent project, built with an AI coding agent.",
 };
 
 const DESKTOP_SHOTS = [
@@ -58,14 +58,15 @@ export default function ProjectPage() {
   const overviewCopy = (
     <>
       <p className="py-2 text-tuna">
-        14,143 PhilHealth-accredited facilities across 17 regions, searchable
-        by what you need and where you are, nearest first.
+        Roughly 14,000 PhilHealth-accredited facilities across 17 regions,
+        searchable by what you need and where you are, nearest first.
       </p>
       <p className="py-2">
-        PhilHealth publishes its accredited facilities only as PDF directories.
-        Kalinga turns them into a map that works on a phone and on a slow
-        connection. It is an independent project and is not affiliated with
-        PhilHealth.
+        Parsed PhilHealth&#39;s accredited-facility lists from various PDF files
+        and geotagged the facilities so you can search by what you need and
+        where you are, even on a phone and a slow connection. The closest
+        matching facilities come first. It is an independent project and is not
+        affiliated with PhilHealth.
       </p>
     </>
   );
@@ -128,16 +129,16 @@ export default function ProjectPage() {
                 <p className="py-2.5 text-justify">
                   PhilHealth&#39;s accredited facilities are published as 26
                   usable PDF lists, one per program. Its own interactive map
-                  returned a 404 when I checked, and the page that pointed to
-                  it was down. The data exists, but it is locked in documents
-                  that are hard to search on a phone.
+                  returned a 404 when I checked, and the page that pointed to it
+                  was down. The data exists, but it is locked in documents that
+                  are hard to search on a phone.
                 </p>
                 <p className="py-2.5 text-justify">
                   Kalinga turns those lists into a map. You pick what you need
-                  (a YAKAP clinic, dialysis, maternity care, dental, animal
-                  bite treatment), say roughly where you are, and see the
-                  accredited facilities that offer it, nearest first. Tap a pin
-                  for details, phone numbers, accreditation expiry and a link to
+                  (a YAKAP clinic, dialysis, maternity care, dental, animal bite
+                  treatment), say roughly where you are, and see the accredited
+                  facilities that offer it, nearest first. Tap a pin for
+                  details, phone numbers, accreditation expiry and a link to
                   directions.
                 </p>
               </div>
@@ -169,8 +170,8 @@ export default function ProjectPage() {
               </h2>
               <ul className="text-tuna/60">
                 <li className="list-disc list-outside ml-7 py-1">
-                  14,143 facilities in 17 regions, from 26 PhilHealth lists
-                  (the COVID-19 lists are left out on purpose).
+                  14,143 facilities in 17 regions, from 26 PhilHealth lists (the
+                  COVID-19 lists are left out on purpose).
                 </li>
                 <li className="list-disc list-outside ml-7 py-1">
                   Locations come from geocoding each address: 39% at street
@@ -194,25 +195,42 @@ export default function ProjectPage() {
               </p>
               <ul className="text-tuna/60">
                 <li className="list-disc list-outside ml-7 py-1">
-                  PhilHealth&#39;s interactive facility map URL returns 404.
+                  <strong>Birthing Homes (broken link).</strong>{" "}
+                  PhilHealth&#39;s accreditation page links to a Birthing Homes
+                  list at{" "}
+                  <a
+                    href="https://www.philhealth.gov.ph/partners/providers/facilities/accredited/MCP_073126.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    MCP_073126.pdf
+                  </a>
+                  , but instead of a PDF it returns an HTML error page (checked
+                  14 Nov 2026). The other 26 lists on the same page download
+                  fine, so birthing homes are missing from Kalinga until
+                  PhilHealth provides the file.
                 </li>
                 <li className="list-disc list-outside ml-7 py-1">
-                  The Birthing Homes list link returns an HTML error page
-                  instead of a PDF, so birthing homes are missing.
+                  <strong>Newborn care (missing, not broken).</strong> There is
+                  no newborn-care list on the page at all, so there is no link
+                  to fix. Pregnancy care is covered; care for newborns is not.
                 </li>
                 <li className="list-disc list-outside ml-7 py-1">
-                  PhilHealth publishes no newborn-care list at all.
+                  PhilHealth&#39;s own interactive facility map URL returns 404.
                 </li>
                 <li className="list-disc list-outside ml-7 py-1">
-                  Three lists (YAKAP, GAMOT, Cancer Screening) carry no date,
-                  so the app says &quot;no date stated&quot; instead of
-                  guessing.
+                  Three lists (YAKAP, GAMOT, Cancer Screening) carry no date, so
+                  the app says &quot;no date stated&quot; instead of guessing.
                 </li>
                 <li className="list-disc list-outside ml-7 py-1">
                   Some PDF rows have e-mails broken across lines and phone
                   fields holding two numbers; the pipeline repairs these.
                 </li>
               </ul>
+              <p className="py-2.5 text-justify text-tuna/60">
+                Kalinga cannot publish birthing homes or newborn-care facilities
+                without data from PhilHealth. Until then the gap is stated
+                openly in the app.
+              </p>
             </article>
 
             <article>
@@ -235,8 +253,8 @@ export default function ProjectPage() {
                 </li>
                 <li className="list-decimal list-outside ml-7 py-1">
                   <strong>A 15-task plan, built test-first:</strong> PDF
-                  extraction, cleaning, merging, geocoding and a per-region
-                  JSON export, then a Preact and TypeScript app with MapLibre.
+                  extraction, cleaning, merging, geocoding and a per-region JSON
+                  export, then a Preact and TypeScript app with MapLibre.
                 </li>
                 <li className="list-decimal list-outside ml-7 py-1">
                   <strong>Fresh-eyes review:</strong> a separate reviewer read
@@ -254,8 +272,8 @@ export default function ProjectPage() {
                 </li>
               </ol>
               <p className="py-2.5 text-justify text-tuna/60">
-                158 automated tests cover it, and the data pipeline can be re-run
-                whenever PhilHealth updates its lists.
+                158 automated tests cover it, and the data pipeline can be
+                re-run whenever PhilHealth updates its lists.
               </p>
             </article>
 
@@ -265,18 +283,38 @@ export default function ProjectPage() {
               </h2>
               <ul className="text-tuna/60">
                 <li className="list-disc list-outside ml-7 py-1">
-                  Fill the gaps: the Birthing Homes and newborn-care lists.
+                  <strong>Birthing homes and newborn care.</strong> The plan to
+                  get the data:
+                  <ol className="mt-1">
+                    <li className="list-decimal list-outside ml-7 py-1">
+                      Ask PhilHealth in writing for the Birthing Homes list and
+                      a fix for the broken link, through its public contact
+                      channels and a freedom-of-information request.
+                    </li>
+                    <li className="list-decimal list-outside ml-7 py-1">
+                      Ask whether a newborn-care accreditation list exists at
+                      all, and if so for a dated copy.
+                    </li>
+                    <li className="list-decimal list-outside ml-7 py-1">
+                      Re-check the accreditation page on a schedule. The
+                      pipeline re-downloads every list, so a fixed link or a new
+                      list is picked up by re-running it.
+                    </li>
+                    <li className="list-decimal list-outside ml-7 py-1">
+                      Publish only what PhilHealth supplies or publishes itself,
+                      never guesses from other sources.
+                    </li>
+                  </ol>
                 </li>
                 <li className="list-disc list-outside ml-7 py-1">
-                  Better locations: more facilities pinned to the building
-                  instead of the town centre.
+                  <strong>Better locations.</strong> More facilities pinned to
+                  the building instead of the town centre (today 41% are
+                  town-centre only).
                 </li>
                 <li className="list-disc list-outside ml-7 py-1">
-                  Privacy-respecting usage statistics that never tie a need or
-                  location to a person.
-                </li>
-                <li className="list-disc list-outside ml-7 py-1">
-                  Cheaper, faster map tiles and automatic deploys.
+                  <strong>A possible separate project:</strong> facilities
+                  partnered with private health insurers (HMOs), for which no
+                  open cross-insurer dataset exists.
                 </li>
               </ul>
             </article>
@@ -311,8 +349,8 @@ export default function ProjectPage() {
               </div>
               <p className="text-body2 text-tuna/60 pb-2">
                 Map data © OpenStreetMap contributors (ODbL); boundaries from
-                OCHA (CC BY-IGO). Kalinga is independent and not affiliated
-                with PhilHealth.
+                OCHA (CC BY-IGO). Kalinga is independent and not affiliated with
+                PhilHealth.
               </p>
             </article>
           </div>
