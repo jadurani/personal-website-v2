@@ -15,15 +15,9 @@ export const StatusBadge = ({ status }: { status: ProjectStatus }) => (
 );
 
 export const TagPills = ({ tags }: { tags: string[] }) => (
-  <ul className="flex flex-wrap gap-2" aria-label="Project tags">
-    {tags.map((tag) => (
-      <li
-        key={tag}
-        className="bg-eggshell text-tuna/80 px-3 py-1 text-body2 rounded-full">
-        {tag}
-      </li>
-    ))}
-  </ul>
+  <p className="font-bold text-verdigris leading-relaxed" aria-label="Tags">
+    {tags.join(", ")}
+  </p>
 );
 
 interface ProjectMetaProps {
