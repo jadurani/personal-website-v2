@@ -89,7 +89,7 @@ export default function Home() {
             <div className="flex gap-4 py-2">
               <Button
                 label="See Projects"
-                handleClick={() => router.push("/portfolio")}></Button>
+                handleClick={() => router.push("/projects")}></Button>
             </div>
           </article>
         </div>

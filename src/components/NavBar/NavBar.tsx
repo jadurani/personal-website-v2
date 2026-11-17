@@ -17,7 +17,7 @@ interface NavBarProps {
 export const NavBar = ({ activeRoute: activeRouteProp }: NavBarProps) => {
   const pathname = usePathname();
   const currentPath = activeRouteProp ?? pathname;
-  // "/portfolio/foo" keeps "Portfolio" active; "/" only matches exactly
+  // "/projects/foo" keeps "Projects" active; "/" only matches exactly
   const isActive = (path: string) =>
     path === "/" ? currentPath === "/" : currentPath?.startsWith(path);
 

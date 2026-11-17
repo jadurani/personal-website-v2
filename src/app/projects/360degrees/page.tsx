@@ -2,7 +2,9 @@ import coverPhoto from "@assets/images/portfolio/360degrees/360degrees-page-cove
 import ContactPrompt from "@components/ContactPrompt/ContactPrompt";
 import { NavBar } from "@components/NavBar/NavBar";
 import { ProjectNav } from "@components/ProjectNav/ProjectNav";
+import { ProjectMeta } from "@components/ProjectMeta/ProjectMeta";
 import { findNextPrevProjects } from "@lib/find-page-nav";
+import { PROJECTS } from "@lib/projects.contant";
 import { Metadata } from "next";
 import Image from "next/image";
 
@@ -15,6 +17,7 @@ export const metadata: Metadata = {
 export default function ProjectPage() {
   const path = "360degrees";
   const nextPrevProjects = findNextPrevProjects(path);
+  const project = PROJECTS.find((p) => p.path === path)!;
 
   return (
     <>
@@ -33,16 +36,26 @@ export default function ProjectPage() {
                   360Degrees Website
                 </h1>
 
+                <div className="pt-4">
+                  <ProjectMeta
+                    tags={project.tags}
+                    status={project.status}
+                    launched={project.launched}
+                  />
+                </div>
+
                 <div className="text-tuna/60 py-4 md:hidden lg:block leading-relaxed">
-                  <p className="py-2">
-                    For this project, I designed and built a fully responsive
-                    website for a construction company.
+                  <p className="py-2 text-tuna">
+                    A new, fully responsive website for a construction company,
+                    replacing a ten-year-old site. I designed and built it,
+                    then handed over documentation and trained their staff to
+                    maintain it.
                   </p>
                   <p className="py-2">
                     Loosely designed via{" "}
                     <a href="https://www.figma.com/" target="_blank">
                       Figma
-                    </a>{" "}
+                    </a>
                     , built with{" "}
                     <a href="https://nextjs.org/" target="_blank">
                       Next.js
@@ -72,15 +85,17 @@ export default function ProjectPage() {
               </div>
 
               <div className="text-tuna/60 py-4 hidden md:block w-full lg:hidden lg:mr-16">
-                <p className="py-2">
-                  For this project, I designed and built a fully responsive
-                  website for a construction company.
+                <p className="py-2 text-tuna">
+                  A new, fully responsive website for a construction company,
+                  replacing a ten-year-old site. I designed and built it, then
+                  handed over documentation and trained their staff to maintain
+                  it.
                 </p>
                 <p className="py-2">
                   Loosely designed via{" "}
                   <a href="https://www.figma.com/" target="_blank">
                     Figma
-                  </a>{" "}
+                  </a>
                   , built with{" "}
                   <a href="https://nextjs.org/" target="_blank">
                     Next.js
@@ -115,7 +130,7 @@ export default function ProjectPage() {
                 </p>
                 <p className="py-2.5 text-justify">
                   The construction company already had an existing website and
-                  they needed a new one to showcase who they are and reflects
+                  they needed a new one to showcase who they are and reflect
                   the awesome work that they do in building creative office
                   spaces. ✨
                 </p>
@@ -128,12 +143,12 @@ export default function ProjectPage() {
                 Website Design 🎨
               </h2>
               <p className="py-2.5 text-justify text-tuna/60">
-                The first version of the website was built 10 years ago. This
+                The first version of the website was built about ten years earlier. This
                 was what they had prior to the revamp:
               </p>
               <div className="relative w-full h-full my-2">
                 <img
-                  alt="project preview for the Project NOAH, Revamped!"
+                  alt="Screenshot of the old 360degrees website landing page"
                   className="object-contain lg:object-cover w-full h-full"
                   src="/images/portfolio/360degrees/old-360degrees-landing.jpg"
                 />
@@ -160,12 +175,11 @@ export default function ProjectPage() {
                 Upon receiving the updated logo, I decided on the colors and
                 fonts that we&#39;ll use for the website and started working on
                 the designs in Figma. Whenever I created a draft of a page, I
-                sent my client the link to my interactive mock-up and request
+                sent my client the link to my interactive mock-up and asked
                 for comments.
               </p>
               <p className="py-2.5 text-justify text-tuna/60">
-                You may view the prototype below (the password is my given name
-                😘) :
+                You may view the prototype below:
               </p>
               <div className="mx-auto my-4 w-[250px] h-[140px] xs:w-[320px] xs:h-[180px] sm:w-[560px] sm:h-[315px]">
                 <iframe
@@ -175,8 +189,8 @@ export default function ProjectPage() {
                   allowFullScreen></iframe>
               </div>
               <p className="py-2.5 text-justify text-tuna/60">
-                Once I received a go-signal from the client, I went ahead and
-                started to deal with the technical implementation.
+                Once I received the client&#39;s go-ahead, I started on the
+                technical implementation.
               </p>
             </article>
 
@@ -187,10 +201,9 @@ export default function ProjectPage() {
               </h2>
               <p className="py-2.5 text-justify text-tuna/60">
                 Although building the designs was a breeze, we encountered a few
-                challenges in the website development and deployments, having
-                multiple missing or misconfigured records and no one knows who
-                has access to what anymore and there were no documentations on
-                them either 😅
+                challenges in the website development and deployments, with
+                multiple missing or misconfigured records, no one sure who
+                had access to what, and no documentation either 😅
               </p>
               <p className="py-2.5 text-justify text-tuna/60">
                 I won&#39;t go over the details of the complexities here for
@@ -220,7 +233,7 @@ export default function ProjectPage() {
                 Mission accomplished 🚀
               </h2>
               <p className="py-2.5 text-justify text-tuna/60">
-                Overall, I had a fun working on this project and I&#39;m glad
+                Overall, I had fun working on this project and I&#39;m glad
                 that I could help them design and build a website that met the
                 company&#39;s needs.
               </p>

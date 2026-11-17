@@ -30,7 +30,7 @@ There are no automated tests yet. Verify UI changes by loading the page in a bro
 
 ## Layout
 
-- `src/app/` — routes. `portfolio/<slug>/page.tsx` is one long hand-written page per project; `lib/projects.contant.ts` (sic) lists the projects shown on the index and drives the prev/next links.
+- `src/app/` — routes. `projects/<slug>/page.tsx` is one long hand-written page per project; `lib/projects.contant.ts` (sic) lists the projects shown on the index and drives the prev/next links.
 - `src/components/<Name>/` — one folder per component, with a `*.stories.tsx` beside it.
 - `src/lib/actions/` — server actions (`save-inquiry` writes to Google Sheets, `verify-captcha` calls reCAPTCHA).
 - `src/lib/nav-links.ts` — single source for header and footer links.
