@@ -127,12 +127,36 @@ export default function ProjectPage() {
               </h2>
               <div className="text-tuna/60">
                 <p className="py-2.5 text-justify">
-                  PhilHealth&#39;s accredited facilities are published as 26
-                  usable PDF lists, one per program. Its own interactive map
+                  PhilHealth&#39;s accredited facilities are published as{" "}
+                  <a
+                    href="https://www.philhealth.gov.ph/partners/providers/facilities/accredited/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    26 usable PDF lists
+                  </a>
+                  , one per program. Its{" "}
+                  <a
+                    href="https://www.philhealth.gov.ph/partners/providers/institutional/map/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    own interactive map
+                  </a>{" "}
                   returned a 404 when I checked, and the page that pointed to it
                   was down. The data exists, but it is locked in documents that
                   are hard to search on a phone.
                 </p>
+                <figure className="py-2.5">
+                  <Image
+                    alt="Browser at www.philhealth.gov.ph/partners/providers/institutional/map/ showing 'Oops! Page Not Found'"
+                    src={`${IMG}/philhealth-map-404-full.webp`}
+                    width={2826}
+                    height={654}
+                    className="w-full h-auto"
+                  />
+                  <figcaption className="text-body2 pt-2">
+                    Checked 20 Nov 2026.
+                  </figcaption>
+                </figure>
                 <p className="py-2.5 text-justify">
                   Kalinga turns those lists into a map. You pick what you need
                   (a YAKAP clinic, dialysis, maternity care, dental, animal bite
@@ -141,6 +165,13 @@ export default function ProjectPage() {
                   details, phone numbers, accreditation expiry and a link to
                   directions.
                 </p>
+                <Image
+                  alt="Kalinga's first screen: choose what you need from 21 plain-language needs in four groups"
+                  src={`${IMG}/01-desktop-needs.webp`}
+                  width={1280}
+                  height={800}
+                  className="w-full h-auto py-2.5"
+                />
               </div>
             </article>
 
@@ -205,7 +236,7 @@ export default function ProjectPage() {
                     MCP_073126.pdf
                   </a>
                   , but instead of a PDF it returns an HTML error page (checked
-                  14 Nov 2026). The other 26 lists on the same page download
+                  14 Nov 2026). The 26 other lists on the same page download
                   fine, so birthing homes are missing from Kalinga until
                   PhilHealth provides the file.
                 </li>
@@ -215,7 +246,14 @@ export default function ProjectPage() {
                   to fix. Pregnancy care is covered; care for newborns is not.
                 </li>
                 <li className="list-disc list-outside ml-7 py-1">
-                  PhilHealth&#39;s own interactive facility map URL returns 404.
+                  PhilHealth&#39;s own{" "}
+                  <a
+                    href="https://www.philhealth.gov.ph/partners/providers/institutional/map/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    interactive facility map URL
+                  </a>{" "}
+                  returns 404.
                 </li>
                 <li className="list-disc list-outside ml-7 py-1">
                   Three lists (YAKAP, GAMOT, Cancer Screening) carry no date, so
