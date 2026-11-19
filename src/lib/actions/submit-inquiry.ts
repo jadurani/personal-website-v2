@@ -8,7 +8,7 @@ export type SubmitInput = {
   fullName: unknown;
   email: unknown;
   message: unknown;
-  website: unknown;
+  honeypot: unknown;
   token: unknown;
 };
 
@@ -21,7 +21,9 @@ const NOT_SENT =
 /** The only way the contact form saves: honeypot → validation → captcha → save. */
 export async function submitInquiry(input: SubmitInput): Promise<SubmitResult> {
   // Honeypot: real people never fill this hidden field. Pretend it worked.
-  if (typeof input.website === "string" && input.website.trim() !== "") {
+  if (typeof input.honeypot === "string" && input.honeypot.trim() !== "") {
+    // Logged (without any visitor data) so autofill false positives show up.
+    console.warn("Contact form: honeypot filled, submission dropped");
     return { ok: true };
   }
 

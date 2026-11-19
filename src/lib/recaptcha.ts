@@ -1,4 +1,5 @@
 // Server-only helper (not a server action): checks a reCAPTCHA v3 token.
+import "server-only";
 
 const PASSING_SCORE = 0.5;
 const EXPECTED_ACTION = "onSubmit";

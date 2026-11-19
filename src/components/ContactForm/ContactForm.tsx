@@ -12,8 +12,9 @@ import {
 import React, { useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
+// The spam check may still be loading, or blocked for good by a content blocker.
 const NOT_READY =
-  "The form is still loading. Please wait a moment and try again.";
+  "The spam check hasn't loaded yet. Please wait a moment and try again. If it keeps failing, a content blocker may be stopping Google reCAPTCHA; you can also reach me through the profiles on this page.";
 
 const LABELS: Record<InquiryField, string> = {
   fullName: "Name",
@@ -68,7 +69,7 @@ const ContactForm: React.FC = () => {
         fullName: form.get("fullName"),
         email: form.get("email"),
         message: form.get("message"),
-        website: form.get("website"),
+        honeypot: form.get("hp_7c2"),
         token,
       });
 
@@ -97,15 +98,19 @@ const ContactForm: React.FC = () => {
           <EmailInput name="email" disabled={loading} />
           <MessageTextarea name="message" disabled={loading} />
 
-          {/* Honeypot: hidden from people and screen readers; bots fill it. */}
-          <div aria-hidden="true" className="absolute -left-[9999px]">
+          {/* Honeypot: hidden from people, screen readers and focus; bots fill it.
+              Neutral name + ignore hints so browsers and password managers
+              don't autofill it (that would silently drop a real message). */}
+          <div aria-hidden="true" inert className="absolute -left-[9999px]">
             <label>
-              Website
+              Leave this empty
               <input
                 type="text"
-                name="website"
+                name="hp_7c2"
                 tabIndex={-1}
                 autoComplete="off"
+                data-1p-ignore
+                data-lpignore="true"
                 defaultValue=""
               />
             </label>

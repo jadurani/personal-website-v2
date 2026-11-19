@@ -6,8 +6,13 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      "@lib": path.resolve(__dirname, "src/lib"),
-      "@components": path.resolve(__dirname, "src/components"),
+      "@lib": path.resolve(import.meta.dirname, "src/lib"),
+      "@components": path.resolve(import.meta.dirname, "src/components"),
+      // Next resolves "server-only" itself; in tests it is a no-op.
+      "server-only": path.resolve(
+        import.meta.dirname,
+        "node_modules/next/dist/compiled/server-only/empty.js"
+      ),
     },
   },
   test: {

@@ -10,7 +10,7 @@ const good = {
   fullName: "Ana",
   email: "a@b.co",
   message: "Hi",
-  website: "",
+  honeypot: "",
   token: "t",
 };
 const pass = { success: true, action: "onSubmit", score: 0.9 };
@@ -68,11 +68,17 @@ test("captcha fails when the token is missing", async () => {
 });
 
 test("honeypot: reports success without checking captcha or saving", async () => {
-  expect(await submitInquiry({ ...good, website: "spam.example" })).toEqual({
+  const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
+  expect(await submitInquiry({ ...good, honeypot: "spam.example" })).toEqual({
     ok: true,
   });
   expect(fetchMock).not.toHaveBeenCalled();
   expect(appendInquiryRow).not.toHaveBeenCalled();
+  // Logged so false positives (e.g. autofill) can be noticed; no visitor data.
+  expect(warn).toHaveBeenCalledTimes(1);
+  expect(JSON.stringify(warn.mock.calls)).not.toMatch(
+    /spam\.example|Ana|a@b\.co/
+  );
 });
 
 test("invalid input: field errors, no captcha check, no save", async () => {

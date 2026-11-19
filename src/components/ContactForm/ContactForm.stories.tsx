@@ -18,5 +18,9 @@ export const Default = () => (
   </GoogleReCaptchaContext.Provider>
 );
 
-/** Without a reCAPTCHA provider the form shows its error message. */
-export const CaptchaUnavailable = () => <ContactForm />;
+/** reCAPTCHA never loads (e.g. a content blocker): the form says so on send. */
+export const CaptchaUnavailable = () => (
+  <GoogleReCaptchaContext.Provider value={{ executeRecaptcha: undefined }}>
+    <ContactForm />
+  </GoogleReCaptchaContext.Provider>
+);

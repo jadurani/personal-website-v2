@@ -38,7 +38,7 @@ test("sends the typed values with a token and shows success", async () => {
     fullName: "Ana",
     email: "a@b.co",
     message: "Hi",
-    website: "",
+    honeypot: "",
     token: "tok",
   });
   expect(await screen.findByText("Message sent!")).toBeTruthy();
@@ -89,6 +89,9 @@ test("invalid input is caught in the browser, naming each field", async () => {
 test("captcha not ready: shows an alert and does not submit", async () => {
   recaptcha.executeRecaptcha = undefined;
   await fillAndSend();
-  expect(await screen.findByRole("alert")).toBeTruthy();
+  // It may never load (content blocker), so don't promise "still loading".
+  expect((await screen.findByRole("alert")).textContent).toMatch(
+    /content blocker/
+  );
   expect(submitInquiry).not.toHaveBeenCalled();
 });
