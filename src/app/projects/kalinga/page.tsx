@@ -134,10 +134,16 @@ export default function ProjectPage() {
                     rel="noopener noreferrer">
                     26 usable PDF lists
                   </a>
-                  , one per program. Its own interactive map returned a 404 when
-                  I checked, and the page that pointed to it was down. The data
-                  exists, but it is locked in documents that are hard to search
-                  on a phone.
+                  , one per program. Its{" "}
+                  <a
+                    href="https://www.philhealth.gov.ph/partners/providers/institutional/map/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    own interactive map
+                  </a>{" "}
+                  returned a 404 when I checked, and the page that pointed to it
+                  was down. The data exists, but it is locked in documents that
+                  are hard to search on a phone.
                 </p>
                 <p className="py-2.5 text-justify">
                   Kalinga turns those lists into a map. You pick what you need
