@@ -70,6 +70,22 @@ test("shows the server's field errors in the alert", async () => {
   );
 });
 
+test("invalid input is caught in the browser, naming each field", async () => {
+  const user = userEvent.setup();
+  render(<ContactForm />);
+  await user.type(
+    screen.getByPlaceholderText("Hi, I would like to inquire about...."),
+    "Hi"
+  );
+  await user.click(screen.getByRole("button", { name: "Send Message" }));
+  const alert = (await screen.findByRole("alert")).textContent;
+  expect(alert).toContain("Name: This field is required");
+  expect(alert).toContain("Email: This field is required");
+  expect(alert).not.toContain("Message:");
+  expect(recaptcha.executeRecaptcha).not.toHaveBeenCalled();
+  expect(submitInquiry).not.toHaveBeenCalled();
+});
+
 test("captcha not ready: shows an alert and does not submit", async () => {
   recaptcha.executeRecaptcha = undefined;
   await fillAndSend();

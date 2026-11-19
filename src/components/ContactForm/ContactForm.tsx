@@ -4,11 +4,28 @@ import EmailInput from "@components/EmailInput/EmailInput";
 import FullNameInput from "@components/FullNameInput/FullNameInput";
 import MessageTextarea from "@components/MessageTextarea/MessageTextarea";
 import { submitInquiry } from "@lib/actions/submit-inquiry";
+import {
+  type FieldErrors,
+  type InquiryField,
+  validateInquiry,
+} from "@lib/inquiry";
 import React, { useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 const NOT_READY =
   "The form is still loading. Please wait a moment and try again.";
+
+const LABELS: Record<InquiryField, string> = {
+  fullName: "Name",
+  email: "Email",
+  message: "Message",
+};
+
+/** "Name: This field is required. Email: Invalid email format." */
+const describeFieldErrors = (errors: FieldErrors) =>
+  (Object.keys(errors) as InquiryField[])
+    .map((field) => `${LABELS[field]}: ${errors[field]}.`)
+    .join(" ");
 
 const ContactForm: React.FC = () => {
   const [loading, setLoading] = useState(false);
@@ -29,6 +46,16 @@ const ContactForm: React.FC = () => {
     const form = new FormData(e.currentTarget);
     setError(null);
 
+    const checked = validateInquiry({
+      fullName: form.get("fullName"),
+      email: form.get("email"),
+      message: form.get("message"),
+    });
+    if (!checked.ok) {
+      setError(describeFieldErrors(checked.fieldErrors));
+      return;
+    }
+
     if (!executeRecaptcha) {
       setError(NOT_READY);
       return;
@@ -48,8 +75,11 @@ const ContactForm: React.FC = () => {
       if (result.ok) {
         setSuccess(true);
       } else {
-        const details = Object.values(result.fieldErrors ?? {});
-        setError([result.message, ...details].join(" "));
+        setError(
+          result.fieldErrors
+            ? describeFieldErrors(result.fieldErrors)
+            : result.message
+        );
       }
     } catch {
       setError("Sorry, your message couldn't be sent. Please try again.");

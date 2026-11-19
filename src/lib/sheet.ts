@@ -44,5 +44,6 @@ export async function appendInquiryRow(
 
   const sheet = doc.sheetsByIndex[sheetIndex];
   if (!sheet) throw new Error("Google Sheet tab not found");
-  await sheet.addRow(row);
+  // raw: store text as typed, so input starting with "=" is never a formula.
+  await sheet.addRow(row, { raw: true });
 }
