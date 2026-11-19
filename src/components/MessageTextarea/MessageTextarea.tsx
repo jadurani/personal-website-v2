@@ -1,25 +1,23 @@
+import { validateField } from "@lib/inquiry";
 import React, { useState } from "react";
 
 interface MessageTextareaProps {
+  name: string;
   disabled?: boolean;
-  onBlur: (value: string) => void;
+  onBlur?: (value: string) => void;
 }
 
 const MessageTextarea: React.FC<MessageTextareaProps> = ({
+  name,
   disabled = false,
   onBlur,
 }) => {
   const [error, setError] = useState<string | null>(null);
 
   const handleBlur = (value: string) => {
-    if (value.trim() === "") {
-      setError("Message is required");
-    } else if (value.length > 500) {
-      setError("Message is too long (maximum 500 characters)");
-    } else {
-      setError(null);
-      onBlur(value);
-    }
+    const message = validateField("message", value);
+    setError(message);
+    if (!message) onBlur?.(value);
   };
 
   return (
@@ -31,6 +29,7 @@ const MessageTextarea: React.FC<MessageTextareaProps> = ({
         Message
       </label>
       <textarea
+        name={name}
         disabled={disabled}
         className={`resize-none appearance-none border-2 w-full py-2 px-3 text-tuna bg-tuna/10 outline-none disabled:cursor-not-allowed ${error ? "border-error" : "focus:border-verdigris"}`}
         placeholder="Hi, I would like to inquire about...."

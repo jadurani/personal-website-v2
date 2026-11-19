@@ -73,15 +73,18 @@ const ContactForm: React.FC = () => {
       {!success && (
         <form onSubmit={handleFormSubmit} className="w-full mx-auto">
           <FullNameInput
+            name="fullName"
             disabled={loading}
             onBlur={(value) => setFormData({ ...formData, fullName: value })}
           />
           <EmailInput
+            name="email"
             disabled={loading}
             onBlur={(value) => setFormData({ ...formData, email: value })}
           />
 
           <MessageTextarea
+            name="message"
             disabled={loading}
             onBlur={(value) => setFormData({ ...formData, message: value })}
           />
