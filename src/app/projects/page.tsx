@@ -37,9 +37,11 @@ export default function ProjectsPage() {
                 {proj.title}
               </h2>
 
-              <p className="text-tuna/60 pt-4 pb-3 leading-loose whitespace-pre-line">
-                {proj.description}
-              </p>
+              <div className="text-tuna/60 pt-4 pb-3 leading-loose space-y-2">
+                {proj.description.split("\n").map((para) => (
+                  <p key={para}>{para}</p>
+                ))}
+              </div>
 
               <div className="pb-6">
                 <TagPills tags={proj.tags} />
