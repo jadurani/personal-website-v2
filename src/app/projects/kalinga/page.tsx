@@ -62,9 +62,9 @@ export default function ProjectPage() {
         searchable by what you need and where you are, nearest first.
       </p>
       <p className="py-2">
-        Parsed PhilHealth&#39;s accredited-facility lists from various PDF files
-        and geotagged the facilities so you can search by what you need and
-        where you are, even on a phone and a slow connection. The closest
+        Kalinga parses PhilHealth&#39;s accredited-facility lists from various
+        PDF files and geotags the facilities so you can search by what you need
+        and where you are, even on a phone and a slow connection. The closest
         matching facilities come first. It is an independent project and is not
         affiliated with PhilHealth.
       </p>
@@ -205,7 +205,7 @@ export default function ProjectPage() {
                     MCP_073126.pdf
                   </a>
                   , but instead of a PDF it returns an HTML error page (checked
-                  14 Nov 2026). The other 26 lists on the same page download
+                  14 Nov 2026). The 26 other lists on the same page download
                   fine, so birthing homes are missing from Kalinga until
                   PhilHealth provides the file.
                 </li>
