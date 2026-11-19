@@ -1,7 +1,7 @@
 type NavLink = {
   label: string;
   path: string;
-}
+};
 
 export const NAV_LINKS: NavLink[] = [
   {
@@ -15,5 +15,5 @@ export const NAV_LINKS: NavLink[] = [
   {
     label: "Contact Me",
     path: "/contact-me",
-  }
-]
+  },
+];
