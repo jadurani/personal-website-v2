@@ -147,16 +147,14 @@ export default function ProjectPage() {
                 </p>
                 <figure className="py-2.5">
                   <Image
-                    alt="PhilHealth's interactive map page showing 'Oops! Page Not Found'"
-                    src={`${IMG}/philhealth-map-404.webp`}
-                    width={720}
-                    height={200}
-                    className="w-full h-auto border border-tuna/10"
+                    alt="Browser at www.philhealth.gov.ph/partners/providers/institutional/map/ showing 'Oops! Page Not Found'"
+                    src={`${IMG}/philhealth-map-404-full.webp`}
+                    width={2826}
+                    height={654}
+                    className="w-full h-auto"
                   />
                   <figcaption className="text-body2 pt-2">
-                    PhilHealth&#39;s interactive map URL
-                    (/partners/providers/institutional/map/), checked 20 Nov
-                    2026.
+                    Checked 20 Nov 2026.
                   </figcaption>
                 </figure>
                 <p className="py-2.5 text-justify">
@@ -167,6 +165,13 @@ export default function ProjectPage() {
                   details, phone numbers, accreditation expiry and a link to
                   directions.
                 </p>
+                <Image
+                  alt="Kalinga's first screen: choose what you need from 21 plain-language needs in four groups"
+                  src={`${IMG}/01-desktop-needs.webp`}
+                  width={1280}
+                  height={800}
+                  className="w-full h-auto py-2.5"
+                />
               </div>
             </article>
 
