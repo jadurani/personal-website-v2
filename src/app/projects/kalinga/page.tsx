@@ -127,11 +127,17 @@ export default function ProjectPage() {
               </h2>
               <div className="text-tuna/60">
                 <p className="py-2.5 text-justify">
-                  PhilHealth&#39;s accredited facilities are published as 26
-                  usable PDF lists, one per program. Its own interactive map
-                  returned a 404 when I checked, and the page that pointed to it
-                  was down. The data exists, but it is locked in documents that
-                  are hard to search on a phone.
+                  PhilHealth&#39;s accredited facilities are published as{" "}
+                  <a
+                    href="https://www.philhealth.gov.ph/partners/providers/facilities/accredited/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    26 usable PDF lists
+                  </a>
+                  , one per program. Its own interactive map returned a 404 when
+                  I checked, and the page that pointed to it was down. The data
+                  exists, but it is locked in documents that are hard to search
+                  on a phone.
                 </p>
                 <p className="py-2.5 text-justify">
                   Kalinga turns those lists into a map. You pick what you need
@@ -215,7 +221,14 @@ export default function ProjectPage() {
                   to fix. Pregnancy care is covered; care for newborns is not.
                 </li>
                 <li className="list-disc list-outside ml-7 py-1">
-                  PhilHealth&#39;s own interactive facility map URL returns 404.
+                  PhilHealth&#39;s own{" "}
+                  <a
+                    href="https://www.philhealth.gov.ph/partners/providers/institutional/map/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    interactive facility map URL
+                  </a>{" "}
+                  returns 404.
                 </li>
                 <li className="list-disc list-outside ml-7 py-1">
                   Three lists (YAKAP, GAMOT, Cancer Screening) carry no date, so
