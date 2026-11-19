@@ -145,6 +145,20 @@ export default function ProjectPage() {
                   was down. The data exists, but it is locked in documents that
                   are hard to search on a phone.
                 </p>
+                <figure className="py-2.5">
+                  <Image
+                    alt="PhilHealth's interactive map page showing 'Oops! Page Not Found'"
+                    src={`${IMG}/philhealth-map-404.webp`}
+                    width={720}
+                    height={200}
+                    className="w-full h-auto border border-tuna/10"
+                  />
+                  <figcaption className="text-body2 pt-2">
+                    PhilHealth&#39;s interactive map URL
+                    (/partners/providers/institutional/map/), checked 20 Nov
+                    2026.
+                  </figcaption>
+                </figure>
                 <p className="py-2.5 text-justify">
                   Kalinga turns those lists into a map. You pick what you need
                   (a YAKAP clinic, dialysis, maternity care, dental, animal bite
