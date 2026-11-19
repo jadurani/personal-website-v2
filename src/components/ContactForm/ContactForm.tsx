@@ -3,68 +3,59 @@
 import EmailInput from "@components/EmailInput/EmailInput";
 import FullNameInput from "@components/FullNameInput/FullNameInput";
 import MessageTextarea from "@components/MessageTextarea/MessageTextarea";
-import { saveToSpreadsheet } from "@lib/actions/save-inquiry";
-import { verifyCaptchaAction } from "@lib/actions/verify-captcha";
+import { submitInquiry } from "@lib/actions/submit-inquiry";
 import React, { useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
-export type ContactFormData = {
-  fullName: string;
-  email: string;
-  message: string;
-};
-
-const initialFormState: ContactFormData = {
-  fullName: "",
-  email: "",
-  message: "",
-};
+const NOT_READY =
+  "The form is still loading. Please wait a moment and try again.";
 
 const ContactForm: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [formData, setFormData] = useState<ContactFormData>(initialFormState);
+  const [error, setError] = useState<string | null>(null);
 
   const { executeRecaptcha } = useGoogleReCaptcha();
 
   const resetForm = () => {
     setLoading(false);
     setSuccess(false);
-    setFormData(initialFormState);
+    setError(null);
   };
 
-  const handleFormSubmit = async (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // if the component is not mounted yet
+    // Read values before disabling the inputs: disabled fields are left out of FormData.
+    const form = new FormData(e.currentTarget);
+    setError(null);
+
     if (!executeRecaptcha) {
+      setError(NOT_READY);
       return;
     }
 
     setLoading(true);
+    try {
+      const token = await executeRecaptcha("onSubmit");
+      const result = await submitInquiry({
+        fullName: form.get("fullName"),
+        email: form.get("email"),
+        message: form.get("message"),
+        website: form.get("website"),
+        token,
+      });
 
-    // receive a token
-    const token = await executeRecaptcha("onSubmit");
-    const verified = await verifyCaptchaAction(token);
-
-    if (!verified) {
-      setSuccess(false);
+      if (result.ok) {
+        setSuccess(true);
+      } else {
+        const details = Object.values(result.fieldErrors ?? {});
+        setError([result.message, ...details].join(" "));
+      }
+    } catch {
+      setError("Sorry, your message couldn't be sent. Please try again.");
+    } finally {
       setLoading(false);
-      return;
     }
-
-    // Check if any of the form fields are empty or null
-    const { fullName, email, message } = formData;
-    if (!fullName || !email || !message) {
-      // You can display an error message or handle it as needed
-      console.error("Please fill in all fields");
-      setLoading(false);
-      return;
-    }
-
-    const rowData = [formData.fullName, formData.email, formData.message];
-    const result = await saveToSpreadsheet(rowData);
-    setSuccess(result.success);
-    setLoading(false);
   };
 
   return (
@@ -72,22 +63,30 @@ const ContactForm: React.FC = () => {
       {/* ACTUAL FORM */}
       {!success && (
         <form onSubmit={handleFormSubmit} className="w-full mx-auto">
-          <FullNameInput
-            name="fullName"
-            disabled={loading}
-            onBlur={(value) => setFormData({ ...formData, fullName: value })}
-          />
-          <EmailInput
-            name="email"
-            disabled={loading}
-            onBlur={(value) => setFormData({ ...formData, email: value })}
-          />
+          <FullNameInput name="fullName" disabled={loading} />
+          <EmailInput name="email" disabled={loading} />
+          <MessageTextarea name="message" disabled={loading} />
 
-          <MessageTextarea
-            name="message"
-            disabled={loading}
-            onBlur={(value) => setFormData({ ...formData, message: value })}
-          />
+          {/* Honeypot: hidden from people and screen readers; bots fill it. */}
+          <div aria-hidden="true" className="absolute -left-[9999px]">
+            <label>
+              Website
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                defaultValue=""
+              />
+            </label>
+          </div>
+
+          {error && (
+            <p role="alert" className="pb-2 text-error font-bold text-body2">
+              {error}
+            </p>
+          )}
+
           <button
             type="submit"
             disabled={loading}

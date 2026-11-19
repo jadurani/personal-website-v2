@@ -20,19 +20,20 @@ Use Node from `.nvmrc` (`nvm use`). The repo refuses other engines (`engine-stri
 |---|---|
 | Dev server | `npm run dev` (`npm run dev:inspect` for the Node inspector) |
 | Type-check | `npx tsc --noEmit` |
+| Unit tests | `npm test` (Vitest + React Testing Library, jsdom) |
 | Lint | `npm run lint` (ESLint 9 flat config, `eslint.config.mjs`) |
 | Production build | `npm run build` |
 | Component workshop | `npm run storybook` / `npm run build-storybook` |
 
 Git hooks (husky): `pre-commit` runs lint, `commit-msg` runs commitlint, `pre-push` runs a full build. A push can take a minute; don't bypass it with `--no-verify`.
 
-There are no automated tests yet. Verify UI changes by loading the page in a browser and checking computed styles, not just by reading the code.
+Unit tests cover the contact form only (`*.test.ts(x)` next to the code; Google and the Sheet are always mocked). Verify UI changes by loading the page in a browser and checking computed styles, not just by reading the code.
 
 ## Layout
 
 - `src/app/` — routes. `projects/<slug>/page.tsx` is one long hand-written page per project; `lib/projects.contant.ts` (sic) lists the projects shown on the index and drives the prev/next links.
 - `src/components/<Name>/` — one folder per component, with a `*.stories.tsx` beside it.
-- `src/lib/actions/` — server actions (`save-inquiry` writes to Google Sheets, `verify-captcha` calls reCAPTCHA).
+- `src/lib/actions/submit-inquiry.ts` — the contact form's only server action: honeypot → validation (`src/lib/inquiry.ts`, shared with the form) → reCAPTCHA (`src/lib/recaptcha.ts`) → Sheet append (`src/lib/sheet.ts`). The helpers are plain server modules, not actions, so they can't be called from the browser.
 - `src/lib/nav-links.ts` — single source for header and footer links.
 - Path aliases (`@components/*`, `@lib/*`, `@assets/*`, …) are defined in `tsconfig.json`. Storybook mirrors them in `.storybook/main.ts`; keep both in sync.
 
@@ -48,7 +49,7 @@ There are no automated tests yet. Verify UI changes by loading the page in a bro
 
 1. **Unlayered CSS beats Tailwind utilities.** In Tailwind 4, any rule outside `@layer` overrides utility classes. Global styles in `globals.css` must live in `@layer base` or `@layer components`, or `text-*`, `border-0` and `hover:*` silently stop working.
 2. **`NEXT_PUBLIC_*` must be read as a plain `process.env.NEXT_PUBLIC_X`.** Optional chaining (`process?.env?.X`) or destructuring stops Next from inlining it, and the value is `undefined` in the browser.
-3. **Server actions touch real services.** `.env.local` points at a live Google Sheet and a live reCAPTCHA key. Submitting the contact form in dev writes a real row. Never print or commit env values; only reference variable names (`GOOGLE_SERVICE_PRIVATE_KEY`, `RECAPTCHA_SECRET_KEY`, `NEXT_PUBLIC_RECAPTCHA_SITE_KEY`, `NEXT_PUBLIC_SPREADSHEET_ID`, …).
+3. **Server actions touch real services.** `.env.local` points at a live Google Sheet and a live reCAPTCHA key. Submitting the contact form in dev writes a real row. Never print or commit env values; only reference variable names (`GOOGLE_SERVICE_PRIVATE_KEY`, `RECAPTCHA_SECRET_KEY`, `NEXT_PUBLIC_RECAPTCHA_SITE_KEY`, `SPREADSHEET_ID`, `SHEET_ID`, `GOOGLE_CLIENT_EMAIL`, …). The Sheet settings still fall back to the old `NEXT_PUBLIC_*` names until they are renamed in Vercel.
 4. **Storybook cannot bundle the server actions** (they import Node-only packages). `.storybook/mocks/actions.ts` replaces them; update the mock if an action's return shape changes.
 5. **Transitions:** colors use `transition-colors`, so a style read right after hover returns the old value. Wait ~300 ms before asserting hover styles.
 6. **Held-back versions:** TypeScript stays on 6.x (`typescript-eslint` lacks TS 7 support) and ESLint on 9.x (`eslint-config-next` plugins cap at 9). Don't bump either without checking that.
