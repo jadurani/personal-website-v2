@@ -32,7 +32,7 @@ const config: StorybookConfig = {
     config.plugins ??= [];
     config.plugins.push(
       new webpack.NormalModuleReplacementPlugin(
-        /lib\/actions\/(save-inquiry|verify-captcha)$/,
+        /lib\/actions\/submit-inquiry$/,
         path.resolve(__dirname, "./mocks/actions.ts")
       )
     );
