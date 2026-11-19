@@ -62,9 +62,9 @@ export default function ProjectPage() {
         searchable by what you need and where you are, nearest first.
       </p>
       <p className="py-2">
-        Kalinga parses PhilHealth&#39;s accredited-facility lists from various
-        PDF files and geotags the facilities so you can search by what you need
-        and where you are, even on a phone and a slow connection. The closest
+        Parsed PhilHealth&#39;s accredited-facility lists from various PDF files
+        and geotagged the facilities so you can search by what you need and
+        where you are, even on a phone and a slow connection. The closest
         matching facilities come first. It is an independent project and is not
         affiliated with PhilHealth.
       </p>
