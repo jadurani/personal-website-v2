@@ -37,7 +37,7 @@ export default function ProjectsPage() {
                 {proj.title}
               </h2>
 
-              <p className="text-tuna/60 pt-4 pb-3 leading-loose">
+              <p className="text-tuna/60 pt-4 pb-3 leading-loose whitespace-pre-line">
                 {proj.description}
               </p>
 
@@ -57,7 +57,6 @@ export default function ProjectsPage() {
                   </span>
                 )}
               </div>
-
             </div>
           </div>
         ))}
