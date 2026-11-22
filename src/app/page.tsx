@@ -6,6 +6,7 @@ import ContactPrompt from "@components/ContactPrompt/ContactPrompt";
 import { NavBar } from "@components/NavBar/NavBar";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import posthog from "posthog-js";
 
 export default function Home() {
   const router = useRouter();
@@ -39,13 +40,14 @@ export default function Home() {
               <Button
                 label="Resum&eacute;"
                 isPrimary={true}
-                handleClick={() =>
+                handleClick={() => {
+                  posthog.capture("resume_downloaded");
                   window.open(
                     "/files/resume.pdf",
                     "_blank",
                     "noopener,noreferrer"
-                  )
-                }></Button>
+                  );
+                }}></Button>
             </div>
           </div>
         </div>

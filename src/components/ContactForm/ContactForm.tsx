@@ -11,6 +11,7 @@ import {
 } from "@lib/inquiry";
 import React, { useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import posthog from "posthog-js";
 
 // The spam check may still be loading, or blocked for good by a content blocker.
 const NOT_READY =
@@ -74,6 +75,7 @@ const ContactForm: React.FC = () => {
       });
 
       if (result.ok) {
+        posthog.capture("inquiry_submitted");
         setSuccess(true);
       } else {
         setError(
