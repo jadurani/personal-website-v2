@@ -3,6 +3,7 @@
 import { Button } from "@components/Button/Button";
 import { FontBody, FontHeading } from "@lib/fonts";
 import { useRouter } from "next/navigation";
+import posthog from "posthog-js";
 
 const ContactPrompt: React.FC = () => {
   const router = useRouter();
@@ -17,7 +18,10 @@ const ContactPrompt: React.FC = () => {
         <div className="flex justify-center sm:justify-end items-center sm:w-1/2">
           <Button
             label="Contact Me"
-            handleClick={() => router.push("/contact-me")}></Button>
+            handleClick={() => {
+              posthog.capture("contact_cta_clicked");
+              router.push("/contact-me");
+            }}></Button>
         </div>
       </div>
     </div>

@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import posthog from "posthog-js";
 
 interface SocialLinksProps {
   /** Color classes for the icons, e.g. "text-white hover:text-verdigris" */
@@ -17,7 +20,10 @@ export const SocialLinks = ({
       className={`${linkClass} ${iconClassName}`}
       href={"https://github.com/jadurani"}
       target="_blank"
-      aria-label="Visit my Github profile">
+      aria-label="Visit my Github profile"
+      onClick={() =>
+        posthog.capture("social_profile_opened", { network: "github" })
+      }>
       <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24">
         <path
           fill="currentColor"
@@ -30,7 +36,10 @@ export const SocialLinks = ({
       className={`${linkClass} ${iconClassName}`}
       href={"https://twitter.com/jadurani"}
       target="_blank"
-      aria-label="Visit my Twitter profile">
+      aria-label="Visit my Twitter profile"
+      onClick={() =>
+        posthog.capture("social_profile_opened", { network: "twitter" })
+      }>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="20">
         <path
           fill="currentColor"
@@ -43,7 +52,10 @@ export const SocialLinks = ({
       className={`${linkClass} ${iconClassName}`}
       href={"https://www.linkedin.com/in/jadurani/"}
       target="_blank"
-      aria-label="Visit my LinkedIn profile">
+      aria-label="Visit my LinkedIn profile"
+      onClick={() =>
+        posthog.capture("social_profile_opened", { network: "linkedin" })
+      }>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
         <path
           fill="currentColor"

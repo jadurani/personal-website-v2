@@ -1,10 +1,12 @@
 import { submitInquiry } from "@lib/actions/submit-inquiry";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import posthog from "posthog-js";
 import { beforeEach, expect, test, vi } from "vitest";
 import ContactForm from "./ContactForm";
 
 vi.mock("@lib/actions/submit-inquiry", () => ({ submitInquiry: vi.fn() }));
+vi.mock("posthog-js", () => ({ default: { capture: vi.fn() } }));
 
 const recaptcha = vi.hoisted(() => ({
   executeRecaptcha: vi.fn(async () => "tok") as
@@ -42,6 +44,21 @@ test("sends the typed values with a token and shows success", async () => {
     token: "tok",
   });
   expect(await screen.findByText("Message sent!")).toBeTruthy();
+});
+
+test("counts a sent message in analytics, without any of its content", async () => {
+  vi.mocked(submitInquiry).mockResolvedValue({ ok: true });
+  await fillAndSend();
+  await screen.findByText("Message sent!");
+  expect(posthog.capture).toHaveBeenCalledTimes(1);
+  expect(posthog.capture).toHaveBeenCalledWith("inquiry_submitted");
+});
+
+test("a failed send is not counted as sent", async () => {
+  vi.mocked(submitInquiry).mockResolvedValue({ ok: false, message: "No" });
+  await fillAndSend();
+  await screen.findByRole("alert");
+  expect(posthog.capture).not.toHaveBeenCalled();
 });
 
 test("shows an alert and keeps the input when sending fails", async () => {

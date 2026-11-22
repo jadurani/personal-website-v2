@@ -35,6 +35,7 @@ Unit tests cover the contact form only (`*.test.ts(x)` next to the code; Google 
 - `src/components/<Name>/` — one folder per component, with a `*.stories.tsx` beside it.
 - `src/lib/actions/submit-inquiry.ts` — the contact form's only server action: honeypot → validation (`src/lib/inquiry.ts`, shared with the form) → reCAPTCHA (`src/lib/recaptcha.ts`) → Sheet append (`src/lib/sheet.ts`). The helpers are plain server modules, not actions, so they can't be called from the browser.
 - `src/lib/nav-links.ts` — single source for header and footer links.
+- Analytics: PostHog (EU), set up in `instrumentation-client.ts` in cookieless mode (no banner needed) and sent through our own `/ingest` path (rewrites in `next.config.mjs`). Off when `NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN` is unset. Server logs for contact-form outcomes go to PostHog via `instrumentation.ts` + `src/lib/posthog-logs.ts`. Never send form contents to analytics. `src/app/sitemap.ts` and `robots.ts` feed Google Search Console.
 - Path aliases (`@components/*`, `@lib/*`, `@assets/*`, …) are defined in `tsconfig.json`. Storybook mirrors them in `.storybook/main.ts`; keep both in sync.
 
 ## Conventions

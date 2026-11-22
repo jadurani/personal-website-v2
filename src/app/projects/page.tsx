@@ -7,6 +7,7 @@ import { TagPills } from "@components/ProjectMeta/ProjectMeta";
 import { formatLaunched, PROJECTS } from "@lib/projects.contant";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import posthog from "posthog-js";
 
 export default function ProjectsPage() {
   const router = useRouter();
@@ -50,9 +51,12 @@ export default function ProjectsPage() {
               <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
                 <Button
                   label="View Project"
-                  handleClick={() =>
-                    router.push(`/projects/${proj.path}`)
-                  }></Button>
+                  handleClick={() => {
+                    posthog.capture("project_selected", {
+                      project_path: proj.path,
+                    });
+                    router.push(`/projects/${proj.path}`);
+                  }}></Button>
                 {formatLaunched(proj.launched) && (
                   <span className="text-body2 text-tuna/60">
                     Launched {formatLaunched(proj.launched)}
