@@ -8,7 +8,8 @@ import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Project NOAH, Revamped! | Jadurani Davalos",
-  description: "Project built with Angular",
+  description:
+    "A revamp of UP NOAH's hazard maps website, the Philippines' science-based disaster risk tool, redesigned so anyone, map expert or not, can check their area's flood, landslide and storm surge risk.",
 };
 
 export default function ProjectPage() {
