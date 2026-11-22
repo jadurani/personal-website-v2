@@ -44,7 +44,7 @@ Unit tests cover the contact form only (`*.test.ts(x)` next to the code; Google 
 - **Formatting:** Prettier (`.prettierrc`): double quotes, semicolons, 80 columns, `bracketSameLine`.
 - **Styling:** Tailwind utilities, with the theme in `@theme` inside `src/app/globals.css` (there is no `tailwind.config`). Brand colors are `verdigris`, `elephant`, `tuna`, `alabaster`, `eggshell`, `error`. Type scale is `text-body1/2`, `text-h1`…`h6`.
 - **Images:** use `next/image`. Several portfolio pages still use raw `<img>` (lint warns); don't add more.
-- **Icons:** inline SVG with `fill="currentColor"` so they recolor with text color. Use `SocialLinks` for the GitHub/Twitter/LinkedIn set.
+- **Icons:** inline SVG with `fill="currentColor"` so they recolor with text color. Use `SocialLinks` for the GitHub/X/LinkedIn set.
 
 ## Gotchas that have already cost time
 
