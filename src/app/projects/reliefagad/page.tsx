@@ -9,8 +9,9 @@ import { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "DSWD ReliefAgad",
-  description: "Interface for the digitalized SAC",
+  title: "ReliefAgad | Jadurani Davalos",
+  description:
+    "Over 4.3 million beneficiaries registered through ReliefAgad, the app built to speed up DSWD's Social Amelioration Program aid for Filipino families. I led the self-registration app and built the LGU registration interface.",
 };
 
 export default function ProjectPage() {
@@ -44,14 +45,13 @@ export default function ProjectPage() {
 
                 <div className="text-tuna/60 py-4 md:hidden lg:block leading-relaxed">
                   <p className="py-2 text-tuna">
-                    Over 4.3 million beneficiaries registered through
-                    ReliefAgad as of July 2020, with more than 1 million
-                    enrolling to receive aid directly in their e-wallets or
-                    bank accounts.
+                    Over 4.3 million beneficiaries registered through ReliefAgad
+                    as of July 2020, with more than 1 million enrolling to
+                    receive aid directly in their e-wallets or bank accounts.
                   </p>
                   <p className="py-2">
-                    I led the development of the self-registration app and
-                    built the LGU registration interface.
+                    I led the development of the self-registration app and built
+                    the LGU registration interface.
                   </p>
 
                   <p className="py-2">
@@ -86,8 +86,8 @@ export default function ProjectPage() {
               <div className="text-tuna/60 py-4 hidden md:block w-full lg:hidden lg:mr-16">
                 <p className="py-2 text-tuna">
                   Over 4.3 million beneficiaries registered through ReliefAgad
-                  as of July 2020, with more than 1 million enrolling to
-                  receive aid directly in their e-wallets or bank accounts.
+                  as of July 2020, with more than 1 million enrolling to receive
+                  aid directly in their e-wallets or bank accounts.
                 </p>
                 <p className="py-2">
                   I led the development of the self-registration app and built
@@ -95,9 +95,9 @@ export default function ProjectPage() {
                 </p>
                 <p className="py-2">
                   We used Angular and Angular Material for the frontend. The
-                  most challenging part was the complex interdependencies of
-                  the fields in the multi-page dynamic form, which
-                  Angular&#39;s Reactive Forms handled well.
+                  most challenging part was the complex interdependencies of the
+                  fields in the multi-page dynamic form, which Angular&#39;s
+                  Reactive Forms handled well.
                 </p>
               </div>
             </div>
@@ -138,18 +138,18 @@ export default function ProjectPage() {
                   Millions of Filipinos lost their income during the pandemic
                   lockdowns. The Philippine government ordered cash assistance
                   for the indigent, and families had to register as in need of
-                  aid by manually filling out a form from DSWD. Once
-                  registered, beneficiaries had to go in person to a designated
-                  disbursement area to claim the aid in cash, which is far from
-                  ideal during a pandemic.
+                  aid by manually filling out a form from DSWD. Once registered,
+                  beneficiaries had to go in person to a designated disbursement
+                  area to claim the aid in cash, which is far from ideal during
+                  a pandemic.
                 </p>
 
                 <p className="py-2.5 text-justify">
                   To help with the distribution of emergency funds, DEVCON, in
                   partnership with USAID and the Department of Social Welfare
                   and Development (DSWD), created ReliefAgad. This app
-                  streamlines the capture of SAC data and the disbursement
-                  of relief funds by using an e-wallet or bank account that enables
+                  streamlines the capture of SAC data and the disbursement of
+                  relief funds by using an e-wallet or bank account that enables
                   DSWD to send aid directly to beneficiaries, using the
                   e-payment systems of the regional banking industry.
                 </p>
@@ -162,10 +162,9 @@ export default function ProjectPage() {
                   beneficiaries.
                 </p>
                 <p className="py-2.5 text-justify">
-                  As of July 2020, over 4.3 million beneficiaries had
-                  registered through ReliefAgad, and over 1 million of them had
-                  enrolled to receive grants directly in their e-wallets or
-                  bank accounts.
+                  As of July 2020, over 4.3 million beneficiaries had registered
+                  through ReliefAgad, and over 1 million of them had enrolled to
+                  receive grants directly in their e-wallets or bank accounts.
                 </p>
 
                 <div className="mx-auto my-4 w-[250px] h-[140px] sm:w-[560px] sm:h-[315px]">
@@ -221,26 +220,18 @@ export default function ProjectPage() {
         mx-auto
         justify-items-center
       ">
-                <img
-                  className="sm:justify-self-end"
-                  alt="ReliefAgad app screenshot 1 of 4"
-                  src="/images/portfolio/reliefagad/ra-preview-1.png"
-                />
-                <img
-                  className="sm:justify-self-start"
-                  alt="ReliefAgad app screenshot 2 of 4"
-                  src="/images/portfolio/reliefagad/ra-preview-2.png"
-                />
-                <img
-                  className="sm:justify-self-end"
-                  alt="ReliefAgad app screenshot 3 of 4"
-                  src="/images/portfolio/reliefagad/ra-preview-3.png"
-                />
-                <img
-                  className="sm:justify-self-start"
-                  alt="ReliefAgad app screenshot 4 of 4"
-                  src="/images/portfolio/reliefagad/ra-preview-4.png"
-                />
+                {[1, 2, 3, 4].map((n) => (
+                  <Image
+                    key={n}
+                    className={
+                      n % 2 ? "sm:justify-self-end" : "sm:justify-self-start"
+                    }
+                    alt={`ReliefAgad app screenshot ${n} of 4`}
+                    src={`/images/portfolio/reliefagad/ra-preview-${n}.png`}
+                    width={306}
+                    height={544}
+                  />
+                ))}
               </div>
             </article>
           </div>

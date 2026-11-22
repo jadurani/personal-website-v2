@@ -8,6 +8,7 @@ export default defineConfig({
     alias: {
       "@lib": path.resolve(import.meta.dirname, "src/lib"),
       "@components": path.resolve(import.meta.dirname, "src/components"),
+      "@assets": path.resolve(import.meta.dirname, "public"),
       // Next resolves "server-only" itself; in tests it is a no-op.
       "server-only": path.resolve(
         import.meta.dirname,
