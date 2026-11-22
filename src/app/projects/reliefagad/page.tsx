@@ -11,7 +11,7 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "ReliefAgad | Jadurani Davalos",
   description:
-    "Over 4.3 million beneficiaries registered through ReliefAgad, the app built to speed up DSWD's Social Amelioration Program aid for Filipino families. I led the self-registration app and built the LGU registration interface.",
+    "DSWD's quick relief system for the Social Amelioration Program: a self-registration app and an LGU registration interface through which over 4.3 million beneficiaries registered, speeding up aid for Filipino families.",
 };
 
 export default function ProjectPage() {

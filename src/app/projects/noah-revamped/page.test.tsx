@@ -7,9 +7,11 @@ vi.mock("next/font/google", () => {
   return { Ibarra_Real_Nova: font, Public_Sans: font };
 });
 
-test("search results and link previews say what NOAH is and what I did", () => {
+test("search results and link previews say what NOAH is", () => {
   expect(metadata.title).toBe("Project NOAH, Revamped! | Jadurani Davalos");
   expect(metadata.description).toMatch(/hazard/);
   expect(metadata.description).toMatch(/flood/);
   expect(metadata.description).not.toBe("Project built with Angular");
+  // About the project, not about me.
+  expect(metadata.description).not.toMatch(/\bI\b/);
 });

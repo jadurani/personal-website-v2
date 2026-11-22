@@ -11,4 +11,6 @@ test("search results and link previews describe what ReliefAgad was", () => {
   expect(metadata.title).toBe("ReliefAgad | Jadurani Davalos");
   expect(metadata.description).toMatch(/4\.3 million/);
   expect(metadata.description).toMatch(/DSWD/);
+  // About the project, not about me.
+  expect(metadata.description).not.toMatch(/\bI\b/);
 });
