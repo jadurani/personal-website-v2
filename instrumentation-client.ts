@@ -15,6 +15,9 @@ if (token) {
     cookieless_mode: "always",
     capture_exceptions: true,
     debug: process.env.NODE_ENV === "development",
+    // Every event carries app=personal-website-v2, so other apps can share
+    // this PostHog project and be told apart with a filter.
+    loaded: (ph) => ph.register({ app: "personal-website-v2" }),
   });
 } else if (process.env.NODE_ENV === "development") {
   // Warn, don't throw: the site must still work without analytics.
