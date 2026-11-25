@@ -1,4 +1,8 @@
 import coverPhoto from "@assets/images/portfolio/reliefagad/reliefagad-page-cover.webp";
+import preview1 from "@assets/images/portfolio/reliefagad/ra-preview-1.png";
+import preview2 from "@assets/images/portfolio/reliefagad/ra-preview-2.png";
+import preview3 from "@assets/images/portfolio/reliefagad/ra-preview-3.png";
+import preview4 from "@assets/images/portfolio/reliefagad/ra-preview-4.png";
 import ContactPrompt from "@components/ContactPrompt/ContactPrompt";
 import { NavBar } from "@components/NavBar/NavBar";
 import { ProjectNav } from "@components/ProjectNav/ProjectNav";
@@ -24,7 +28,13 @@ export default function ProjectPage() {
       <NavBar></NavBar>
       <main className="max-w-6xl container mx-auto px-8">
         {/* hero */}
-        <Image alt="project preview for ReliefAgad" src={coverPhoto} />
+        <Image
+          alt="project preview for ReliefAgad"
+          src={coverPhoto}
+          placeholder="blur"
+          loading="eager"
+          fetchPriority="high"
+        />
 
         <div className="flex flex-col lg:gap-16 lg:flex-row">
           {/* overview */}
@@ -220,18 +230,22 @@ export default function ProjectPage() {
         mx-auto
         justify-items-center
       ">
-                {[1, 2, 3, 4].map((n) => (
-                  <Image
-                    key={n}
-                    className={
-                      n % 2 ? "sm:justify-self-end" : "sm:justify-self-start"
-                    }
-                    alt={`ReliefAgad app screenshot ${n} of 4`}
-                    src={`/images/portfolio/reliefagad/ra-preview-${n}.png`}
-                    width={306}
-                    height={544}
-                  />
-                ))}
+                {[preview1, preview2, preview3, preview4].map((preview, i) => {
+                  const n = i + 1;
+                  return (
+                    <Image
+                      key={n}
+                      className={
+                        n % 2 ? "sm:justify-self-end" : "sm:justify-self-start"
+                      }
+                      alt={`ReliefAgad app screenshot ${n} of 4`}
+                      src={preview}
+                      width={306}
+                      height={544}
+                      placeholder="blur"
+                    />
+                  );
+                })}
               </div>
             </article>
           </div>

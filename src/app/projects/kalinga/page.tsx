@@ -1,3 +1,15 @@
+import cover from "@assets/images/portfolio/kalinga/kalinga-page-cover.webp";
+import philhealthMap404 from "@assets/images/portfolio/kalinga/philhealth-map-404-full.webp";
+import desktopNeedsShot from "@assets/images/portfolio/kalinga/01-desktop-needs.webp";
+import desktopLocationShot from "@assets/images/portfolio/kalinga/02-desktop-location.webp";
+import desktopResultsShot from "@assets/images/portfolio/kalinga/03-desktop-results.webp";
+import desktopLegendShot from "@assets/images/portfolio/kalinga/04-desktop-legend.webp";
+import desktopDetailsShot from "@assets/images/portfolio/kalinga/05-desktop-details.webp";
+import mobileNeedsShot from "@assets/images/portfolio/kalinga/06-mobile-needs.webp";
+import mobileLocationShot from "@assets/images/portfolio/kalinga/07-mobile-location.webp";
+import mobileResultsShot from "@assets/images/portfolio/kalinga/08-mobile-results.webp";
+import mobileDetailsShot from "@assets/images/portfolio/kalinga/09-mobile-details.webp";
+import desktopHoverApproximateShot from "@assets/images/portfolio/kalinga/10-desktop-hover-approximate.webp";
 import ContactPrompt from "@components/ContactPrompt/ContactPrompt";
 import { NavBar } from "@components/NavBar/NavBar";
 import { ProjectMeta } from "@components/ProjectMeta/ProjectMeta";
@@ -8,7 +20,6 @@ import { Metadata } from "next";
 import Image from "next/image";
 
 const LIVE_URL = "https://kalinga-philhealth-maps.pages.dev";
-const IMG = "/images/portfolio/kalinga";
 
 export const metadata: Metadata = {
   title: "Kalinga | Jadurani Davalos",
@@ -18,36 +29,36 @@ export const metadata: Metadata = {
 
 const DESKTOP_SHOTS = [
   {
-    file: "01-desktop-needs",
+    src: desktopNeedsShot,
     alt: "Kalinga's first screen: choose what you need from 21 plain-language needs in four groups",
   },
   {
-    file: "02-desktop-location",
+    src: desktopLocationShot,
     alt: "Kalinga asking roughly where you are, by place name or device location",
   },
   {
-    file: "03-desktop-results",
+    src: desktopResultsShot,
     alt: "Hospitals near Pasig City as pins on the map, with a nearest-first list beside it",
   },
   {
-    file: "04-desktop-legend",
+    src: desktopLegendShot,
     alt: "The 'reading the map' legend explaining pins and approximate locations",
   },
   {
-    file: "05-desktop-details",
+    src: desktopDetailsShot,
     alt: "A facility's details: phone numbers, accreditation expiry and a link to directions",
   },
   {
-    file: "10-desktop-hover-approximate",
+    src: desktopHoverApproximateShot,
     alt: "Hover card on an approximate pin, with a note to contact the facility",
   },
 ];
 
 const MOBILE_SHOTS = [
-  { file: "06-mobile-needs", alt: "Choosing a need on a phone" },
-  { file: "07-mobile-location", alt: "Saying where you are on a phone" },
-  { file: "08-mobile-results", alt: "Results map and list on a phone" },
-  { file: "09-mobile-details", alt: "Facility details on a phone" },
+  { src: mobileNeedsShot, alt: "Choosing a need on a phone" },
+  { src: mobileLocationShot, alt: "Saying where you are on a phone" },
+  { src: mobileResultsShot, alt: "Results map and list on a phone" },
+  { src: mobileDetailsShot, alt: "Facility details on a phone" },
 ];
 
 export default function ProjectPage() {
@@ -79,10 +90,10 @@ export default function ProjectPage() {
         {/* hero */}
         <Image
           alt="Kalinga showing hospitals near Pasig City on a map"
-          src={`${IMG}/kalinga-page-cover.webp`}
-          width={1280}
-          height={800}
-          priority
+          src={cover}
+          placeholder="blur"
+          loading="eager"
+          fetchPriority="high"
         />
 
         <div className="mt-12 flex flex-col lg:gap-16 lg:flex-row">
@@ -148,9 +159,8 @@ export default function ProjectPage() {
                 <figure className="py-2.5">
                   <Image
                     alt="Browser at www.philhealth.gov.ph/partners/providers/institutional/map/ showing 'Oops! Page Not Found'"
-                    src={`${IMG}/philhealth-map-404-full.webp`}
-                    width={2826}
-                    height={654}
+                    src={philhealthMap404}
+                    placeholder="blur"
                     className="w-full h-auto"
                   />
                   <figcaption className="text-body2 pt-2">
@@ -167,9 +177,8 @@ export default function ProjectPage() {
                 </p>
                 <Image
                   alt="Kalinga's first screen: choose what you need from 21 plain-language needs in four groups"
-                  src={`${IMG}/01-desktop-needs.webp`}
-                  width={1280}
-                  height={800}
+                  src={desktopNeedsShot}
+                  placeholder="blur"
                   className="w-full h-auto py-2.5"
                 />
               </div>
@@ -364,11 +373,10 @@ export default function ProjectPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 py-4">
                 {DESKTOP_SHOTS.map((shot) => (
                   <Image
-                    key={shot.file}
+                    key={shot.alt}
                     alt={shot.alt}
-                    src={`${IMG}/${shot.file}.webp`}
-                    width={1280}
-                    height={800}
+                    src={shot.src}
+                    placeholder="blur"
                     className="w-full h-auto"
                   />
                 ))}
@@ -376,11 +384,10 @@ export default function ProjectPage() {
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 py-4">
                 {MOBILE_SHOTS.map((shot) => (
                   <Image
-                    key={shot.file}
+                    key={shot.alt}
                     alt={shot.alt}
-                    src={`${IMG}/${shot.file}.webp`}
-                    width={390}
-                    height={800}
+                    src={shot.src}
+                    placeholder="blur"
                     className="w-full h-auto"
                   />
                 ))}
