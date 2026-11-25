@@ -38,10 +38,16 @@ export default function LoopingVideo({
   );
   const ref = useRef<HTMLVideoElement>(null);
 
-  // React doesn't write the `muted` attribute; browsers only autoplay muted video.
+  // Start playback here, not with an `autoplay` attribute: the server can't
+  // know the visitor's motion setting, and the browser would start the clip
+  // from the HTML before this check runs. Browsers only allow muted autoplay.
   useEffect(() => {
-    if (ref.current) ref.current.muted = true;
-  }, []);
+    const video = ref.current;
+    if (!video) return;
+    video.muted = true;
+    if (reduce) video.pause();
+    else video.play().catch(() => {});
+  }, [reduce]);
 
   return (
     <video
@@ -56,7 +62,6 @@ export default function LoopingVideo({
       loop
       playsInline
       preload="metadata"
-      autoPlay={!reduce}
       controls={reduce}
     />
   );

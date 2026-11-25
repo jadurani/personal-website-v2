@@ -1,5 +1,13 @@
 import { render } from "@testing-library/react";
-import { afterEach, expect, test, vi } from "vitest";
+import { renderToString } from "react-dom/server";
+import {
+  afterEach,
+  beforeEach,
+  expect,
+  test,
+  vi,
+  type MockInstance,
+} from "vitest";
 import LoopingVideo from "./LoopingVideo";
 
 const props = {
@@ -22,7 +30,18 @@ function stubReducedMotion(reduce: boolean) {
   );
 }
 
-afterEach(() => vi.unstubAllGlobals());
+let play: MockInstance<() => Promise<void>>;
+beforeEach(() => {
+  play = vi
+    .spyOn(HTMLMediaElement.prototype, "play")
+    .mockResolvedValue(undefined);
+  vi.spyOn(HTMLMediaElement.prototype, "pause").mockImplementation(() => {});
+});
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+  vi.restoreAllMocks();
+});
 
 test("plays like a gif: muted, looping, inline, with a poster", () => {
   stubReducedMotion(false);
@@ -31,7 +50,7 @@ test("plays like a gif: muted, looping, inline, with a poster", () => {
 
   expect(video.muted).toBe(true);
   expect(video.loop).toBe(true);
-  expect(video.autoplay).toBe(true);
+  expect(play).toHaveBeenCalled();
   expect(video.hasAttribute("playsinline")).toBe(true);
   expect(video.getAttribute("poster")).toBe(props.poster);
   expect(video.getAttribute("aria-label")).toBe(props.label);
@@ -45,8 +64,14 @@ test("respects reduced motion: no autoplay, shows controls", () => {
   const { container } = render(<LoopingVideo {...props} />);
   const video = container.querySelector("video")!;
 
-  expect(video.autoplay).toBe(false);
+  expect(play).not.toHaveBeenCalled();
   expect(video.hasAttribute("controls")).toBe(true);
   // The poster still fills the space until the visitor presses play.
   expect(video.getAttribute("poster")).toBe(props.poster);
+});
+
+test("server html never autoplays, so reduced-motion visitors aren't surprised before hydration", () => {
+  const html = renderToString(<LoopingVideo {...props} />);
+  expect(html).not.toMatch(/autoplay/i);
+  expect(html).toMatch(/muted/);
 });
