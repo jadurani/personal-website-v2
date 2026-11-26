@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { act, fireEvent, render, screen } from "@testing-library/react";
 import { renderToString } from "react-dom/server";
 import {
   afterEach,
@@ -57,15 +57,20 @@ test("plays like a gif: muted, looping, inline, with a poster", () => {
   expect(video.width).toBe(720);
   expect(video.height).toBe(429);
   expect(video.hasAttribute("controls")).toBe(false);
+  // While it starts on its own, no play button flashes over it.
+  expect(screen.queryByRole("button", { name: /play/i })).toBeNull();
 });
 
-test("respects reduced motion: no autoplay, shows controls", () => {
+test("respects reduced motion: no autoplay, shows a play button", () => {
   stubReducedMotion(true);
   const { container } = render(<LoopingVideo {...props} />);
   const video = container.querySelector("video")!;
 
   expect(play).not.toHaveBeenCalled();
-  expect(video.hasAttribute("controls")).toBe(true);
+  expect(video.hasAttribute("controls")).toBe(false);
+  expect(
+    screen.getByRole("button", { name: "Play a looping clip" })
+  ).toBeTruthy();
   // The poster still fills the space until the visitor presses play.
   expect(video.getAttribute("poster")).toBe(props.poster);
 });
@@ -74,4 +79,43 @@ test("server html never autoplays, so reduced-motion visitors aren't surprised b
   const html = renderToString(<LoopingVideo {...props} />);
   expect(html).not.toMatch(/autoplay/i);
   expect(html).toMatch(/muted/);
+});
+
+test("a big play button starts a paused video", async () => {
+  stubReducedMotion(true);
+  const { container } = render(<LoopingVideo {...props} />);
+  const video = container.querySelector("video")!;
+
+  fireEvent.click(screen.getByRole("button", { name: "Play a looping clip" }));
+  expect(play).toHaveBeenCalled();
+
+  fireEvent.play(video);
+  expect(screen.queryByRole("button", { name: /^play/i })).toBeNull();
+});
+
+test("shows the play button when the browser blocks autoplay", async () => {
+  stubReducedMotion(false);
+  play.mockRejectedValue(new DOMException("blocked", "NotAllowedError"));
+  render(<LoopingVideo {...props} />);
+  await act(async () => {});
+
+  expect(
+    screen.getByRole("button", { name: "Play a looping clip" })
+  ).toBeTruthy();
+});
+
+test("a playing video can be paused, then the play button returns", () => {
+  stubReducedMotion(false);
+  const { container } = render(<LoopingVideo {...props} />);
+  const video = container.querySelector("video")!;
+  fireEvent.play(video);
+
+  const pause = vi.mocked(HTMLMediaElement.prototype.pause);
+  fireEvent.click(screen.getByRole("button", { name: "Pause a looping clip" }));
+  expect(pause).toHaveBeenCalled();
+
+  fireEvent.pause(video);
+  expect(
+    screen.getByRole("button", { name: "Play a looping clip" })
+  ).toBeTruthy();
 });
