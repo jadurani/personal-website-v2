@@ -1,4 +1,5 @@
 import { act, fireEvent, render, screen } from "@testing-library/react";
+import { hydrateRoot } from "react-dom/client";
 import { renderToString } from "react-dom/server";
 import {
   afterEach,
@@ -104,18 +105,35 @@ test("shows the play button when the browser blocks autoplay", async () => {
   ).toBeTruthy();
 });
 
-test("a playing video can be paused, then the play button returns", () => {
-  stubReducedMotion(false);
+test("after the first play, browser controls replace the big button", () => {
+  stubReducedMotion(true);
   const { container } = render(<LoopingVideo {...props} />);
   const video = container.querySelector("video")!;
+
+  fireEvent.click(screen.getByRole("button", { name: "Play a looping clip" }));
   fireEvent.play(video);
+  expect(video.hasAttribute("controls")).toBe(true);
+  expect(screen.queryByRole("button")).toBeNull();
 
-  const pause = vi.mocked(HTMLMediaElement.prototype.pause);
-  fireEvent.click(screen.getByRole("button", { name: "Pause a looping clip" }));
-  expect(pause).toHaveBeenCalled();
-
+  // Pausing with the controls doesn't bring the big button back over the view.
   fireEvent.pause(video);
+  expect(screen.queryByRole("button")).toBeNull();
+  expect(video.hasAttribute("controls")).toBe(true);
+});
+
+test("hydrating for a reduced-motion visitor never calls play", async () => {
+  const container = document.createElement("div");
+  container.innerHTML = renderToString(<LoopingVideo {...props} />);
+  document.body.appendChild(container);
+  stubReducedMotion(true);
+
+  await act(async () => {
+    hydrateRoot(container, <LoopingVideo {...props} />);
+  });
+
+  expect(play).not.toHaveBeenCalled();
   expect(
     screen.getByRole("button", { name: "Play a looping clip" })
   ).toBeTruthy();
+  container.remove();
 });
