@@ -1,4 +1,5 @@
 import coverPhoto from "@assets/images/portfolio/360degrees/360degrees-page-cover.webp";
+import oldLanding from "@assets/images/portfolio/360degrees/old-360degrees-landing.jpg";
 import ContactPrompt from "@components/ContactPrompt/ContactPrompt";
 import { NavBar } from "@components/NavBar/NavBar";
 import { ProjectNav } from "@components/ProjectNav/ProjectNav";
@@ -25,7 +26,13 @@ export default function ProjectPage() {
 
       <main className="max-w-6xl container mx-auto px-8">
         {/* hero */}
-        <Image alt="project preview for 360degrees website" src={coverPhoto} />
+        <Image
+          alt="project preview for 360degrees website"
+          src={coverPhoto}
+          placeholder="blur"
+          loading="eager"
+          fetchPriority="high"
+        />
 
         <div className="mt-12 flex flex-col lg:gap-16 lg:flex-row">
           {/* overview */}
@@ -147,10 +154,11 @@ export default function ProjectPage() {
                 was what they had prior to the revamp:
               </p>
               <div className="relative w-full h-full my-2">
-                <img
+                <Image
                   alt="Screenshot of the old 360degrees website landing page"
                   className="object-contain lg:object-cover w-full h-full"
-                  src="/images/portfolio/360degrees/old-360degrees-landing.jpg"
+                  src={oldLanding}
+                  placeholder="blur"
                 />
               </div>
               <p className="py-2.5 text-justify text-tuna/60">

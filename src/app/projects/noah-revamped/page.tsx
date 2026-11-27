@@ -1,4 +1,10 @@
 import coverPhoto from "@assets/images/portfolio/noah-revamped/noah-page-cover.webp";
+import oldLanding from "@assets/images/portfolio/noah-revamped/old-noah-landing-page-with-modal.webp";
+import technicalUsers from "@assets/images/portfolio/noah-revamped/technical-users.webp";
+import nonTechnicalUsers from "@assets/images/portfolio/noah-revamped/non-technical-users.webp";
+import oldStormSurges from "@assets/images/portfolio/noah-revamped/old-noah-storm-surges.webp";
+import previewMaypasokba from "@assets/images/portfolio/noah-revamped/preview-maypasokba.webp";
+import LoopingVideo from "@components/LoopingVideo/LoopingVideo";
 import ContactPrompt from "@components/ContactPrompt/ContactPrompt";
 import { NavBar } from "@components/NavBar/NavBar";
 import { ProjectNav } from "@components/ProjectNav/ProjectNav";
@@ -25,6 +31,9 @@ export default function ProjectPage() {
         <Image
           alt="project preview for the Project NOAH, Revamped!"
           src={coverPhoto}
+          placeholder="blur"
+          loading="eager"
+          fetchPriority="high"
         />
 
         <div className="flex flex-col lg:gap-16 lg:flex-row">
@@ -282,12 +291,11 @@ export default function ProjectPage() {
                     looked like:
                   </p>
                   <div className="relative w-full h-full my-2">
-                    <img
+                    <Image
+                      placeholder="blur"
                       alt="project preview for the Project NOAH, Revamped!"
                       className="object-contain lg:object-cover w-full h-full"
-                      src={
-                        "/images/portfolio/noah-revamped/old-noah-landing-page-with-modal.webp"
-                      }
+                      src={oldLanding}
                     />
                   </div>
                   <p className="text-tuna/60 py-2 text-justify">
@@ -305,21 +313,19 @@ export default function ProjectPage() {
                   </p>
                   <div className="my-2 flex gap-4 flex-wrap lg:flex-nowrap w-full">
                     <div>
-                      <img
+                      <Image
+                        placeholder="blur"
                         alt="Photo of airplane pilots in a cockpit, likened to the user segment that are comfortable with complexity"
                         className="object-contain lg:object-cover flex-grow h-full"
-                        src={
-                          "/images/portfolio/noah-revamped/technical-users.webp"
-                        }
+                        src={technicalUsers}
                       />
                     </div>
                     <div>
-                      <img
+                      <Image
+                        placeholder="blur"
                         alt="Photo of airplane passengers, likened to the user segment that do not need to deal with the complexities of flying"
                         className="object-contain lg:object-cover flex-grow h-full"
-                        src={
-                          "/images/portfolio/noah-revamped/non-technical-users.webp"
-                        }
+                        src={nonTechnicalUsers}
                       />
                     </div>
                   </div>
@@ -343,12 +349,11 @@ export default function ProjectPage() {
                   </ol>
 
                   <div className="block my-4">
-                    <img
+                    <Image
+                      placeholder="blur"
                       alt="Screenshot of the old NOAH web app"
                       className="object-contain lg:object-cover w-full h-full"
-                      src={
-                        "/images/portfolio/noah-revamped/old-noah-storm-surges.webp"
-                      }
+                      src={oldStormSurges}
                     />
                   </div>
                 </article>
@@ -434,9 +439,12 @@ export default function ProjectPage() {
                   <section className="mt-2 text-tuna/60">
                     <h5 className="text-tuna/80">Preview:</h5>
                     <div className="my-4 mx-6">
-                      <img
-                        src="/images/portfolio/noah-revamped/preview-comet.gif"
-                        alt="preview of sample project"
+                      <LoopingVideo
+                        src="/images/portfolio/noah-revamped/preview-comet.mp4"
+                        poster="/images/portfolio/noah-revamped/preview-comet-poster.webp"
+                        label="preview of sample project"
+                        width={720}
+                        height={429}
                       />
                     </div>
                   </section>
@@ -521,8 +529,9 @@ export default function ProjectPage() {
                   <section className="mt-2 text-tuna/60">
                     <h5 className="text-tuna/80">Preview:</h5>
                     <div className="my-4 mx-6">
-                      <img
-                        src="/images/portfolio/noah-revamped/preview-maypasokba.webp"
+                      <Image
+                        placeholder="blur"
+                        src={previewMaypasokba}
                         alt="preview of sample project"
                       />
                     </div>
@@ -590,9 +599,12 @@ export default function ProjectPage() {
                   <section className="mt-2 text-tuna/60">
                     <h5 className="text-tuna/80">Preview:</h5>
                     <div className="my-4 mx-6">
-                      <img
-                        src="/images/portfolio/noah-revamped/preview-topoview.gif"
-                        alt="preview of sample project"
+                      <LoopingVideo
+                        src="/images/portfolio/noah-revamped/preview-topoview.mp4"
+                        poster="/images/portfolio/noah-revamped/preview-topoview-poster.webp"
+                        label="preview of sample project"
+                        width={720}
+                        height={648}
                       />
                     </div>
                   </section>

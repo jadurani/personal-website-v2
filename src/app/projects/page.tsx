@@ -29,6 +29,9 @@ export default function ProjectsPage() {
                 width={512}
                 height={512}
                 src={proj.thumbnailSrc}
+                placeholder="blur"
+                loading={idx === 0 ? "eager" : "lazy"}
+                fetchPriority={idx === 0 ? "high" : "auto"}
                 className="object-cover m-auto"
               />
             </div>
